@@ -1,4 +1,5 @@
 import TargetChatManagerRequestFlow from './TargetChatManagerRequestFlow';
+import TargetChatManagerSuccessFlow from './TargetChatManagerSuccessFlow';
 import TargetReducerFlow from './TargetReducerFlow';
 
 export default function ReduxActionFlowSlide() {
@@ -6,6 +7,7 @@ export default function ReduxActionFlowSlide() {
     <>
       <TargetReducerFlow />
       <TargetChatManagerRequestFlow />
+      <TargetChatManagerSuccessFlow />
     </>
   );
 }
