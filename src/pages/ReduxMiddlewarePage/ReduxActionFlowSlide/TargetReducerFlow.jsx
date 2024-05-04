@@ -6,7 +6,7 @@ export default function TargetReducerFlow() {
   return (
     <Slide>
       {/* Frame 1: Dispatch reducer-action from App */}
-      <FixedFrame>
+      <FixedFrame actionType='Reducer'>
         <ObjectWrapper position='bottomLeftCorner'>
           <div
             data-id='redux-action'
@@ -20,7 +20,7 @@ export default function TargetReducerFlow() {
       </FixedFrame>
 
       {/* Frame 2: Check reducer-action against UI middleware */}
-      <FixedFrame>
+      <FixedFrame actionType='Reducer'>
         {/* Action */}
         <ObjectWrapper position='bottomLeftCorner'>
           <div
@@ -43,7 +43,7 @@ export default function TargetReducerFlow() {
       </FixedFrame>
 
       {/* Frame 3: Check reducer-action against chat-manager middleware */}
-      <FixedFrame>
+      <FixedFrame actionType='Reducer'>
         {/* Action */}
         <ObjectWrapper position='bottomLeftCorner'>
           <div
@@ -66,7 +66,7 @@ export default function TargetReducerFlow() {
       </FixedFrame>
 
       {/* Frame 4: Check reducer-action against API middleware*/}
-      <FixedFrame>
+      <FixedFrame actionType='Reducer'>
         {/* Action */}
         <ObjectWrapper position='bottomLeftCorner'>
           <div
@@ -89,7 +89,7 @@ export default function TargetReducerFlow() {
       </FixedFrame>
 
       {/* Frame 5: Check reducer-action against reducer*/}
-      <FixedFrame>
+      <FixedFrame actionType='Reducer'>
         {/* Action */}
         <ObjectWrapper position='bottomLeftCorner'>
           <div

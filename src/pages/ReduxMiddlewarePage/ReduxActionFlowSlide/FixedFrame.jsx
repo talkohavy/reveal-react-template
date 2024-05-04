@@ -2,11 +2,11 @@ import ObjectWrapper from '../../../components/PresentationSlides/ObjectWrapper'
 import Slide from '../../../components/PresentationSlides/Slide';
 
 export default function FixedFrame(props) {
-  const { children } = props;
+  const { actionType = '', children } = props;
 
   return (
     <Slide data-auto-animate>
-      <h1>Action Flow</h1>
+      <h3>Action Flow - {actionType}</h3>
 
       <div className='r-stretch relative flex items-end justify-between p-6 text-left' data-id='2'>
         {/* App */}

@@ -8,7 +8,7 @@ export default function TargetChatManagerRequestFlow() {
   return (
     <Slide>
       {/* Frame 1: Dispatch chat-action from App */}
-      <FixedFrame>
+      <FixedFrame actionType='Request'>
         <ObjectWrapper position='bottomLeftCorner'>
           <div
             data-id='redux-action'
@@ -22,7 +22,7 @@ export default function TargetChatManagerRequestFlow() {
       </FixedFrame>
 
       {/* Frame 2: Check chat-action against UI middleware */}
-      <FixedFrame>
+      <FixedFrame actionType='Request'>
         {/* Action */}
         <ObjectWrapper position='bottomLeftCorner'>
           <div
@@ -45,7 +45,7 @@ export default function TargetChatManagerRequestFlow() {
       </FixedFrame>
 
       {/* Frame 3: Check chat-action against chat middleware */}
-      <FixedFrame>
+      <FixedFrame actionType='Request'>
         {/* Action */}
         <ObjectWrapper position='bottomLeftCorner'>
           <div
@@ -91,7 +91,7 @@ export default function TargetChatManagerRequestFlow() {
       </FixedFrame>
 
       {/* Frame 4: Create new api-action for API middleware */}
-      <FixedFrame>
+      <FixedFrame actionType='Request'>
         {/* Action 1 */}
         <ObjectWrapper position='bottomLeftCorner'>
           <div
@@ -118,7 +118,7 @@ export default function TargetChatManagerRequestFlow() {
       </FixedFrame>
 
       {/* Frame 5: Check api-action against UI middleware */}
-      <FixedFrame>
+      <FixedFrame actionType='Request'>
         {/* Action 1 */}
         <ObjectWrapper position='bottomLeftCorner'>
           <div
@@ -145,7 +145,7 @@ export default function TargetChatManagerRequestFlow() {
       </FixedFrame>
 
       {/* Frame 6: Check api-action against Chat-Manager middleware */}
-      <FixedFrame>
+      <FixedFrame actionType='Request'>
         {/* Action 1 */}
         <ObjectWrapper position='bottomLeftCorner'>
           <div
@@ -172,7 +172,7 @@ export default function TargetChatManagerRequestFlow() {
       </FixedFrame>
 
       {/* Frame 7: Check api-action against API middleware */}
-      <FixedFrame>
+      <FixedFrame actionType='Request'>
         {/* Action 1 */}
         <ObjectWrapper position='bottomLeftCorner'>
           <div
@@ -199,7 +199,7 @@ export default function TargetChatManagerRequestFlow() {
       </FixedFrame>
 
       {/* Frame 8: Release redux store */}
-      <FixedFrame>
+      <FixedFrame actionType='Request'>
         <div className='flex flex-col items-center justify-center' style={{ margin: '0 auto', marginBottom: 80 }}>
           <p>New Store State:</p>
 

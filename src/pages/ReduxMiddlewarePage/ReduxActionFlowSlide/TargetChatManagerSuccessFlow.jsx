@@ -8,7 +8,7 @@ export default function TargetChatManagerSuccessFlow() {
   return (
     <Slide>
       {/* Frame 1: Dispatch success-action from API */}
-      <FixedFrame>
+      <FixedFrame actionType='Success'>
         <ObjectWrapper position='bottomLeftCorner'>
           <div
             data-id='redux-action'
@@ -22,7 +22,7 @@ export default function TargetChatManagerSuccessFlow() {
       </FixedFrame>
 
       {/* Frame 2: Check chat-action against UI middleware */}
-      <FixedFrame>
+      <FixedFrame actionType='Success'>
         <ObjectWrapper position='bottomLeftCorner'>
           <div
             data-id='redux-action'
@@ -36,7 +36,7 @@ export default function TargetChatManagerSuccessFlow() {
       </FixedFrame>
 
       {/* Frame 3: Check chat-action against Chat-Manager middleware */}
-      <FixedFrame>
+      <FixedFrame actionType='Success'>
         <ObjectWrapper position='bottomLeftCorner'>
           <div
             data-id='redux-action'
@@ -81,7 +81,7 @@ export default function TargetChatManagerSuccessFlow() {
       </FixedFrame>
 
       {/* Frame 4: Release redux store */}
-      <FixedFrame>
+      <FixedFrame actionType='Success'>
         <div className='flex flex-col items-center justify-center' style={{ margin: '0 auto', marginBottom: 80 }}>
           <p>New Store State:</p>
 
