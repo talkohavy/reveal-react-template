@@ -3,6 +3,10 @@
 @tailwind utilities;
 /* @tailwind variants; */
 
+:root {
+  --r-heading-text-transform: 'none';
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -91,6 +95,27 @@
 @layer utilities {
   .reveal{}
   .slides{}
+  .notes{}
+  .fragment{}
+  .current-visible{}
+  .fade-in{}
+  .fade-out{}
+  .semi-fade-out{}
+  .fade-up{}
+  .fade-down{}
+  .fade-left{}
+  .fade-right{}
+  .grow{}
+  .shrink{}
+  .r-fit-text{}
+  .r-stretch{}
+  .r-stack{}
+  .highlight-red{}
+  .highlight-current-red{}
+  .highlight-green{}
+  .highlight-blue{}
+  .fade-in-then-out{}
+  .fade-in-then-semi-out{}
 
   .no-scrollbar {
     /* IE and Edge */
