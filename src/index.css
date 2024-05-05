@@ -40,6 +40,10 @@
   opacity: 0.5;
 }
 
+code, code span { 
+  font-family: 'Consolas', 'Courier New', Courier, monospace !important
+}
+
 @layer base {
   html {
     @apply w-full;

@@ -7,7 +7,21 @@ import RevealNotes from 'reveal.js/plugin/notes/notes.js';
 
 import 'reveal.js/dist/reveal.css';
 import 'reveal.js/dist/theme/black.css';
-import 'reveal.js/plugin/highlight/monokai.css';
+
+// import './themes/monokai.css';
+
+import './themes/atom-one-dark.css';
+
+// import './themes/1c-light.css';
+// import './themes/a11y-light.css';
+// import './themes/agate.css';
+// import './themes/an-old-hope.css';
+// import './themes/andriodstudio.css';
+// import './themes/arta.css';
+// import './themes/atom-one-dark-reasonable.css';
+// import './themes/github-dark-dimmed.css';
+// import './themes/github-dark.css';
+// import './themes/github-light.css';
 
 export default function PresentationSlides(props) {
   const { children } = props;

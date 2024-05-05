@@ -1,5 +1,6 @@
 import PresentationSlides from '../../components/PresentationSlides';
 import DecoupleRequestAndResponseSlide from './DecoupleRequestAndResponseSlide';
+import LetsCodeAUnitTestSlide from './LetsCodeAUnitTestSlide';
 import MiddlewareProsAndConsSlide from './MiddlewareProsAndConsSlide';
 import MockApiMiddlewareSlide from './MockApiMiddlewareSlide';
 import ReducedReadabilitySlide from './ReducedReadabilitySlide';
@@ -23,6 +24,8 @@ export default function ReduxExamplePage() {
       <DecoupleRequestAndResponseSlide />
 
       <MockApiMiddlewareSlide />
+
+      <LetsCodeAUnitTestSlide />
     </PresentationSlides>
   );
 }
