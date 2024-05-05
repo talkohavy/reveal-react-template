@@ -1,7 +1,5 @@
 /**
- * @param {import('react').PropsWithChildren<{
- *   aaa?: string
- * }>} props
+ * @param {import('react').PropsWithChildren} props
  */
 export default function SideNotes(props) {
   const { children } = props;
