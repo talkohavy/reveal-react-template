@@ -7,11 +7,9 @@ import RevealNotes from 'reveal.js/plugin/notes/notes.js';
 
 import 'reveal.js/dist/reveal.css';
 import 'reveal.js/dist/theme/black.css';
-
-// import './themes/monokai.css';
-
 import './themes/atom-one-dark.css';
 
+// import './themes/monokai.css';
 // import './themes/1c-light.css';
 // import './themes/a11y-light.css';
 // import './themes/agate.css';

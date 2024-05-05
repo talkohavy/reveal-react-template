@@ -14,7 +14,6 @@
   -moz-outline-radius: unset;
   outline: none;
   color: inherit;
-  font-family: Verdana, Geneva, Tahoma, 'arial', 'Times New Roman', tahoma;
 }
 
 *::-webkit-scrollbar {

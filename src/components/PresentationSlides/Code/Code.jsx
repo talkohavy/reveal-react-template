@@ -5,7 +5,7 @@
  * }>} props
  */
 export default function Code(props) {
-  const { highlightLineNumbers, startFromLineNumber, children } = props;
+  const { highlightLineNumbers = true, startFromLineNumber, children } = props;
 
   // pre data-id
 
