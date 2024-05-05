@@ -1,4 +1,6 @@
+import ObjectWrapper from '../../components/PresentationSlides/ObjectWrapper';
 import Slide from '../../components/PresentationSlides/Slide';
+import folderStructureImage from './folder-structure.png';
 
 export default function ReduxStoreStructureSlide() {
   return (
@@ -14,6 +16,10 @@ export default function ReduxStoreStructureSlide() {
           <li>insights</li>
           <li>api</li>
         </ul>
+
+        <ObjectWrapper position='rightCenter'>
+          <img src={folderStructureImage} alt='folder structure' className='h-lg' style={{ marginTop: 160 }} />
+        </ObjectWrapper>
       </div>
     </Slide>
   );

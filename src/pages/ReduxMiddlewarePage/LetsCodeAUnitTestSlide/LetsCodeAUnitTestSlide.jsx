@@ -34,7 +34,7 @@ describe('ChatInput', () => {
 
         fireEvent.click(chatInputSendButton);
 
-        const actualState = store.getState() as Partial<StoreState>;
+        const actualState = mockStore.getState() as Partial<StoreState>;
 
         const expectedState = deepMerge(initialStateBeforeChatInputSendMessage, expectedStateAfterChatInputSendMessage);
         expect(actualState).toEqual(expectedState);
