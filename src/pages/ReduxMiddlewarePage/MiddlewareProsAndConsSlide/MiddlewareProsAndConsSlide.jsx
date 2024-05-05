@@ -13,7 +13,7 @@ export default function MiddlewareProsAndConsSlide() {
           <ul className='p-4 text-left text-lg'>
             <li className='fragment highlight-green'>logic is removed from UI</li>
             <li>Highly predictable</li>
-            <li>Store is not a singleton</li>
+            <li>0 singletons</li>
             <li>Safely add code (Isolated code)</li>
             <li>Maintainable</li>
             <li>Efficient (1 render)</li>
@@ -38,7 +38,8 @@ export default function MiddlewareProsAndConsSlide() {
           <li>logic is removed from UI</li>
           <li>Highly predictable - since it's redux</li>
           <li>
-            Store is not a singleton, which allows for parallel run of unit tests, which isn't possible if it were
+            Zero singletons. The store is not a singleton, which allows for parallel run of unit tests, which isn't
+            possible if it were a singleton.
           </li>
           <li>I can safely add/remove code, without worrying about affecting other parts of the application</li>
           <li>Maintainable - this is something I can tell you from experience. I found it easy to maintain.</li>
