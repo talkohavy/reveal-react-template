@@ -10,11 +10,10 @@ export default function DeleteCodeFromApiMiddleware() {
         <i>filename: api/middleware.ts</i>
       </p>
 
-      <Code highlightLineNumbers='9,12-15' className='r-stretch'>
+      <Code highlightLineNumbers='8,11-13' className='r-stretch'>
         {String.raw`import { chatbotDAL } from '@src/dal/chat/chatBotApiDAL';
 import { createMiddleware } from '../../helpers/createMiddleware';
 import { apiRequestFlow, name } from './actions';
-import { runOnFailure, runOnSuccess } from './helpers';
 
 const apiMiddleware = createMiddleware({
     name,
