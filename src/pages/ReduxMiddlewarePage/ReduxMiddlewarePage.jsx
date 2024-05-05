@@ -1,6 +1,7 @@
 import PresentationSlides from '../../components/PresentationSlides';
-import FlowTestingSlide from './FlowTestingSlide';
+import DecoupleRequestAndResponseSlide from './DecoupleRequestAndResponseSlide';
 import MiddlewareProsAndConsSlide from './MiddlewareProsAndConsSlide';
+import MockApiMiddlewareSlide from './MockApiMiddlewareSlide';
 import ReducedReadabilitySlide from './ReducedReadabilitySlide';
 import ReduxActionFlowSlide from './ReduxActionFlowSlide';
 import ReduxOpeningSlide from './ReduxOpeningSlide';
@@ -19,7 +20,9 @@ export default function ReduxExamplePage() {
 
       <ReducedReadabilitySlide />
 
-      <FlowTestingSlide />
+      <DecoupleRequestAndResponseSlide />
+
+      <MockApiMiddlewareSlide />
     </PresentationSlides>
   );
 }
