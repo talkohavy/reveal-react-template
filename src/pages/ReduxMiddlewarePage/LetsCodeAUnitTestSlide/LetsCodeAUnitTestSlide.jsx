@@ -6,9 +6,8 @@ export default function LetsCodeAUnitTestSlide() {
     <Slide>
       <h3>Let's see some code !</h3>
 
-      <div className='r-stretch border'>
-        <Code highlightLineNumbers='13|14|18-22|26|28|31'>
-          {String.raw`import { configure, fireEvent, render } from '@testing-library/react';
+      <Code highlightLineNumbers='13|14|18-22|26|28|31' className='r-stretch'>
+        {String.raw`import { configure, fireEvent, render } from '@testing-library/react';
 import { deepMerge } from '@src/common/helpers/utils';
 import MainPanelLayout from '@src/components/MainPanelLayout';
 import { StoreState } from '@src/store';
@@ -41,8 +40,7 @@ describe('ChatInput', () => {
         expect(actualState).toEqual(expectedState);
     });
 });`}
-        </Code>
-      </div>
+      </Code>
     </Slide>
   );
 }

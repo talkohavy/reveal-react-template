@@ -7,6 +7,7 @@ import ReducedReadabilitySlide from './ReducedReadabilitySlide';
 import ReduxActionFlowSlide from './ReduxActionFlowSlide';
 import ReduxOpeningSlide from './ReduxOpeningSlide';
 import ReduxStoreStructureSlide from './ReduxStoreStructureSlide';
+import WhatWouldARefactorLookLikeSlide from './WhatWouldARefactorLookLikeSlide';
 
 export default function ReduxExamplePage() {
   return (
@@ -26,6 +27,8 @@ export default function ReduxExamplePage() {
       <MockApiMiddlewareSlide />
 
       <LetsCodeAUnitTestSlide />
+
+      <WhatWouldARefactorLookLikeSlide />
     </PresentationSlides>
   );
 }
