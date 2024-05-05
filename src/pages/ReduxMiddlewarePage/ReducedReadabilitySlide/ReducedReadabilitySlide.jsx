@@ -1,7 +1,7 @@
 import SideNotes from '../../../components/PresentationSlides/SideNotes';
 import Slide from '../../../components/PresentationSlides/Slide';
 
-export default function ReducedReadability() {
+export default function ReducedReadabilitySlide() {
   return (
     <Slide>
       <h3>Reduced Readability</h3>
