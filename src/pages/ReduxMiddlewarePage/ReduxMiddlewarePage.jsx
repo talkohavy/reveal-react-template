@@ -7,6 +7,7 @@ import ReducedReadabilitySlide from './ReducedReadabilitySlide';
 import ReduxActionFlowSlide from './ReduxActionFlowSlide';
 import ReduxOpeningSlide from './ReduxOpeningSlide';
 import ReduxStoreStructureSlide from './ReduxStoreStructureSlide';
+import RefactorProsAndConsSlide from './RefactorProsAndConsSlide';
 import WhatWouldARefactorLookLikeSlide from './WhatWouldARefactorLookLikeSlide';
 
 export default function ReduxExamplePage() {
@@ -30,7 +31,7 @@ export default function ReduxExamplePage() {
 
       <WhatWouldARefactorLookLikeSlide />
 
-      {/* <FinalSummarySlide /> */}
+      <RefactorProsAndConsSlide />
     </PresentationSlides>
   );
 }
