@@ -1,3 +1,4 @@
+import SideNotes from '../../components/PresentationSlides/SideNotes';
 import Slide from '../../components/PresentationSlides/Slide';
 import image from './fisherman.png';
 
@@ -13,6 +14,11 @@ export default function ReduxOpeningSlide() {
 
         <img data-src={image} alt='teach a man how to fish' className='w-64 self-end' />
       </div>
+
+      <SideNotes>
+        So, we're to follow-up after last week's ai overview presentation, and discuss the possible refactor of the
+        current infra-structure.
+      </SideNotes>
     </Slide>
   );
 }
