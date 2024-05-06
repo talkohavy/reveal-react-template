@@ -29,6 +29,8 @@ export default function ReduxExamplePage() {
       <LetsCodeAUnitTestSlide />
 
       <WhatWouldARefactorLookLikeSlide />
+
+      {/* <FinalSummarySlide /> */}
     </PresentationSlides>
   );
 }

@@ -200,7 +200,10 @@ export default function TargetChatManagerRequestFlow() {
 
       {/* Frame 8: Release redux store */}
       <FixedFrame actionType='Request'>
-        <div className='flex flex-col items-center justify-center' style={{ margin: '0 auto', marginBottom: 80 }}>
+        <div
+          className='fragment flex flex-col items-center justify-center'
+          style={{ margin: '0 auto', marginBottom: 80 }}
+        >
           <p>New Store State:</p>
 
           <ul className='border p-6 text-xl'>
