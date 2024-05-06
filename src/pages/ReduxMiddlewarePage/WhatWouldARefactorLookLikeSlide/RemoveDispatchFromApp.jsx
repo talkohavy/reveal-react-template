@@ -1,4 +1,5 @@
 import Code from '../../../components/PresentationSlides/Code';
+import SideNotes from '../../../components/PresentationSlides/SideNotes';
 import Slide from '../../../components/PresentationSlides/Slide';
 
 export default function RemoveDispatchFromApp() {
@@ -25,6 +26,8 @@ export default function RemoveDispatchFromApp() {
   // ...
 }`}
         </Code>
+
+        <SideNotes>On the application's side, we simply need to remove the `dispatch`.</SideNotes>
       </Slide>
 
       <Slide slideConfig={{ dataAutoAnimate: true }}>

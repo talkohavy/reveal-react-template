@@ -1,4 +1,5 @@
 import Code from '../../../components/PresentationSlides/Code';
+import SideNotes from '../../../components/PresentationSlides/SideNotes';
 import Slide from '../../../components/PresentationSlides/Slide';
 
 export default function DeleteCodeFromChatManagerMiddleware() {
@@ -264,6 +265,16 @@ const chatManagerMiddleware = createMiddleware({
 
 export { chatManagerMiddleware };`}
       </Code>
+
+      <SideNotes>
+        On the chatManager's middleware file, we need to bring together the sendMessage flow, which is the preparation
+        (click) before the request (click),
+        <br />
+        <br />
+        the request itself (click), which is nothing more than a spinner & and choosing the DAL method to invoke.
+        <br />
+        <br />
+      </SideNotes>
     </Slide>
   );
 }

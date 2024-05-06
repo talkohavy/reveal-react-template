@@ -7,7 +7,7 @@ export default function AfterRefactor() {
     <Slide>
       <h3>After Refactor</h3>
 
-      <Code highlightLineNumbers='14|15-32|34|44|47|50,52'>
+      <Code highlightLineNumbers='14|15-32|34|44|47,50,52'>
         {String.raw`import { fetchMeAnError } from '@src/common/helpers/errorMonkey';
 import { chatbotDAL } from '@src/dal/chat/chatBotApiDAL';
 import { ChatRequest } from '@src/models/chat/dto';
@@ -120,8 +120,17 @@ export { sendMessageFlow, chatQueryRequest };`}
       </Code>
 
       <SideNotes>
-        And this is the Akiles heel of the refactor, since if I wanted to test this flow, i would have to mock 2 global
-        instances, 2 singletons. One is the store, as we've already mentioned, and the second one is the chatbotDAL.
+        So this is how the final result of the refactor would look like:
+        <br />
+        <br />
+        We'd have a simple async function, sendMessageFlow, which does the same preparation,
+        <br />
+        <br />
+        calling chatQueryRequest (click), and here is the Achilles heel of this whole refactor.
+        <br />
+        <br />
+        since now, if I wanted to test this flow, I would have to mock 2 global instances, 2 singletons. One is the
+        store, as we've already mentioned, and the second one is the chatbotDAL.
       </SideNotes>
     </Slide>
   );

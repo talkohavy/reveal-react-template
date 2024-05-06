@@ -1,4 +1,5 @@
 import Code from '../../../components/PresentationSlides/Code';
+import SideNotes from '../../../components/PresentationSlides/SideNotes';
 import Slide from '../../../components/PresentationSlides/Slide';
 
 export default function DeleteCodeFromApiMiddleware() {
@@ -30,6 +31,14 @@ const apiMiddleware = createMiddleware({
 
 export { apiMiddleware };`}
       </Code>
+
+      <SideNotes>
+        And the api middleware will be removed completely.
+        <br />
+        <br />
+        One word about the api middleware - the api middleware to me is like node_internals. I never touch it, it
+        doesn't need modifications. It's just - Send a request, get back a response.
+      </SideNotes>
     </Slide>
   );
 }
