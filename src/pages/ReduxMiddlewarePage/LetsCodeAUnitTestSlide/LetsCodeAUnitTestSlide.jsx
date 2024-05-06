@@ -1,4 +1,5 @@
 import Code from '../../../components/PresentationSlides/Code';
+import SideNotes from '../../../components/PresentationSlides/SideNotes';
 import Slide from '../../../components/PresentationSlides/Slide';
 
 export default function LetsCodeAUnitTestSlide() {
@@ -41,6 +42,23 @@ describe('ChatInput', () => {
     });
 });`}
       </Code>
+
+      <SideNotes>
+        To understand how powerful this system is, let's examine how a unit would be written.
+        <br />
+        <br />I want to test the Request flow. Sending a message should update store state properly (click).
+        <br />
+        <br />
+        So first I need to mock the store. Give it some initial state before the send message action (click).
+        <br />
+        <br />
+        Render the ChatInput, wrapped in a store provider, provide it with the mocked store (click), and hit send - fire
+        the event.
+        <br />
+        <br />
+        The entire flow we talked about earlier will occur, and all I need to do now is just (click) grab the new state,
+        the actual state, and compare it (click) with the expected state.
+      </SideNotes>
     </Slide>
   );
 }

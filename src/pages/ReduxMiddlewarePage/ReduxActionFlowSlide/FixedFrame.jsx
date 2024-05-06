@@ -42,10 +42,13 @@ const SIDE_NOTES_RENDERER = {
   request: () => (
     <SideNotes>
       I am mocking just the API middleware, and that's it. Then, everything precedes as it normally would (move forwards
-      until action is aligned with mock), except... that now, when the action would arrive to the mock api middleware, I
-      do NOT send a network request. In fact, I can do one of two things: I could mock the request, and have an entire
-      flow be tested. Or...! I could just stop. right here (click). And test only the request part, to make sure to
-      everything up until the request works properly.
+      until action is aligned with mock),
+      <br />
+      <br />
+      except... that now, when the action would get to the mock api middleware, I do NOT send a network request. In
+      fact, I can do one of two things: I could mock the request, and have an entire flow be tested. Or...! I could just
+      stop. right here (click). And test only the request part, to make sure to everything up until the request works
+      properly.
     </SideNotes>
   ),
 };

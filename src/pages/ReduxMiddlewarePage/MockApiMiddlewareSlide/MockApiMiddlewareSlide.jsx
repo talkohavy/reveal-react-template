@@ -8,7 +8,7 @@ export default function FlowTestingSlide() {
   return (
     <Slide>
       {/* Frame 1: Display store before mock */}
-      <FixedFrame actionType='Request'>
+      <FixedFrame actionType='request'>
         {/* Action 1 */}
         <ObjectWrapper position='bottomLeftCorner'>
           <div
@@ -23,7 +23,7 @@ export default function FlowTestingSlide() {
       </FixedFrame>
 
       {/* Frame 2: Replace API middleware with API Mock middleware */}
-      <FixedFrame actionType='Request'>
+      <FixedFrame actionType='request'>
         {/* Mock API Middleware */}
         <ObjectWrapper position='topCenter'>
           <div
@@ -50,7 +50,7 @@ export default function FlowTestingSlide() {
       </FixedFrame>
 
       {/* Frame 3: Check chat-action against UI middleware */}
-      <FixedFrame actionType='Request'>
+      <FixedFrame actionType='request'>
         {/* Mock API Middleware */}
         <ObjectWrapper position='topCenter'>
           <div
@@ -85,7 +85,7 @@ export default function FlowTestingSlide() {
       </FixedFrame>
 
       {/* Frame 3: Check chat-action against chat middleware */}
-      <FixedFrame actionType='Request'>
+      <FixedFrame actionType='request'>
         {/* Mock API Middleware */}
         <ObjectWrapper position='topCenter'>
           <div
@@ -143,7 +143,7 @@ export default function FlowTestingSlide() {
       </FixedFrame>
 
       {/* Frame 4: Create new api-action for API middleware */}
-      <FixedFrame actionType='Request'>
+      <FixedFrame actionType='request'>
         {/* Mock API Middleware */}
         <ObjectWrapper position='topCenter'>
           <div
@@ -182,7 +182,7 @@ export default function FlowTestingSlide() {
       </FixedFrame>
 
       {/* Frame 5: Check api-action against UI middleware */}
-      <FixedFrame actionType='Request'>
+      <FixedFrame actionType='request'>
         {/* Mock API Middleware */}
         <ObjectWrapper position='topCenter'>
           <div
@@ -221,7 +221,7 @@ export default function FlowTestingSlide() {
       </FixedFrame>
 
       {/* Frame 6: Check api-action against Chat-Manager middleware */}
-      <FixedFrame actionType='Request'>
+      <FixedFrame actionType='request'>
         {/* Mock API Middleware */}
         <ObjectWrapper position='topCenter'>
           <div
@@ -260,7 +260,7 @@ export default function FlowTestingSlide() {
       </FixedFrame>
 
       {/* Frame 7: Check api-action against API middleware */}
-      <FixedFrame actionType='Request'>
+      <FixedFrame actionType='request'>
         {/* Mock API Middleware */}
         <ObjectWrapper position='topCenter'>
           <div
@@ -299,7 +299,7 @@ export default function FlowTestingSlide() {
       </FixedFrame>
 
       {/* Frame 8: Release redux store */}
-      <FixedFrame actionType='Request'>
+      <FixedFrame actionType='request'>
         {/* Mock API Middleware */}
         <ObjectWrapper position='topCenter'>
           <div

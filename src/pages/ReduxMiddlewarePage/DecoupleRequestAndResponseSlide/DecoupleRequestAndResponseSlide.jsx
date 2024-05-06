@@ -38,8 +38,16 @@ export default function DecoupleRequestAndResponseSlide() {
       </div>
 
       <SideNotes>
-        Essentially what I did was... I decoupled the request from the response. And that enables me to test the request
-        part separately, and the response part separately. And how am I doing that?
+        What have I done here really?
+        <br />
+        <br />
+        Essentially what I did was... I decoupled the request from the response.
+        <br />
+        <br />
+        And that enables me to test the request part separately, and the response part separately.
+        <br />
+        <br />
+        And how am I doing that?
       </SideNotes>
     </Slide>
   );
