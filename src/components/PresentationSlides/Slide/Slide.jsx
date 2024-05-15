@@ -8,15 +8,16 @@ import { convertReactPropsToRevealProps } from '../utils/convertReactPropsToReve
 /**
  * @param {import('react').PropsWithChildren<{
  *   slideConfig?: SlideConfig,
+ *   className?: string
  * }>} props
  */
 export default function Slide(props) {
-  const { children, slideConfig, ...rest } = props;
+  const { children, slideConfig, className, ...rawRestProps } = props;
 
   const revealProps = useMemo(() => convertReactPropsToRevealProps(slideConfig), [slideConfig]);
 
   return (
-    <section {...revealProps} {...rest}>
+    <section {...revealProps} data-state={className} {...rawRestProps}>
       {children}
     </section>
   );

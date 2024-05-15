@@ -31,7 +31,17 @@ export type SlideConfig = {
    * @default 'fade'
    */
   dataBackgroundTransition?: 'none' | 'fade' | 'slide' | 'convex' | 'concave' | 'zoom';
+  /**
+   * @example
+   * "linear-gradient(to bottom, #283b95, #17b2c3)"
+   */
+  dataBackgroundGradient: string;
   dataBackgroundImage?: string;
+  dataBackgroundSize?: string;
+  /**
+   * @default 1
+   */
+  dataBackgroundOpacity?: number;
   dataBackgroundVideo?: string;
   dataBackgroundVideoLoop?: boolean;
   dataBackgroundVideoMuted?: boolean;

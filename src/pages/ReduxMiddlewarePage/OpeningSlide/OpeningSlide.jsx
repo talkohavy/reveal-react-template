@@ -1,10 +1,11 @@
-import SideNotes from '../../components/PresentationSlides/SideNotes';
-import Slide from '../../components/PresentationSlides/Slide';
+import SideNotes from '../../../components/PresentationSlides/SideNotes';
+import Slide from '../../../components/PresentationSlides/Slide';
 import image from './fisherman.png';
+import styles from './OpeningSlide.module.css';
 
 export default function ReduxOpeningSlide() {
   return (
-    <Slide>
+    <Slide className={styles.makeItPop}>
       <h1>Redux Middleware</h1>
 
       <div className='r-stretch flex flex-col items-center justify-between'>
