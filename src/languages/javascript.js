@@ -289,7 +289,7 @@ export default function registerJavascriptLanguage(hljs) {
       // Hard coded exceptions
       /\bJSON/,
       // Float32Array, OutT
-      /\b[A-Z][a-z]+([A-Z][a-z]*|\d)*/,
+      // /\b[A-Z][a-z]+([A-Z][a-z]*|\d)*/, // <--- commented out because it colored imported named Objects beginning with a capital letter.
       // CSSFactory, CSSFactoryT
       /\b[A-Z]{2,}([A-Z][a-z]+|\d)+([A-Z][a-z]*)*/,
       // FPs, FPsT

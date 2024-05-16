@@ -49,8 +49,12 @@ hue-6-2: #e6c07b
   color: #C586C0;
 }
 
+/* A Jsx Component: */
+.hljs-name{
+  color: #4DC9B0
+}
+
 .hljs-section,
-.hljs-name,
 .hljs-selector-tag,
 .hljs-deletion,
 .hljs-subst {
