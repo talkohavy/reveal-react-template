@@ -20,19 +20,33 @@ hue-6-2: #e6c07b
 
 .hljs {
   color: #c0e4f6;
-  background: #202228;
+  background: #262626;
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: #5c6370;
-  font-style: italic;
+  color: #6A9956;
+}
+
+/* The keywords: const, let, var, function, async */
+.hljs-keyword2 {
+  color: #569CD6;
+}
+
+/* A function's name */
+.hljs-title.function_ {
+  color: #DCDCAA;
+}
+
+/* All the values: true, false, null, undefined, Infinity */
+.hljs-literal {
+  color: #569CD6;
 }
 
 .hljs-doctag,
 .hljs-keyword,
 .hljs-formula {
-  color: #c678dd;
+  color: #C586C0;
 }
 
 .hljs-section,
@@ -41,10 +55,6 @@ hue-6-2: #e6c07b
 .hljs-deletion,
 .hljs-subst {
   color: #e06c75;
-}
-
-.hljs-literal {
-  color: #56b6c2;
 }
 
 .hljs-string,
@@ -63,7 +73,8 @@ hue-6-2: #e6c07b
 .hljs-selector-attr,
 .hljs-selector-pseudo,
 .hljs-number {
-  color: #d19a66;
+  /* color: #d19a66; */
+  color: #9CDCFE;
 }
 
 .hljs-symbol,
@@ -75,10 +86,13 @@ hue-6-2: #e6c07b
   color: #61aeee;
 }
 
+
+/* .hljs-title.class_ = Typescript - a type's name */
+/* .hljs-built_in = Typescript's type (i.e. const aaa: SomeType) */
 .hljs-built_in,
 .hljs-title.class_,
 .hljs-class .hljs-title {
-  color: #e6c07b;
+  color: #4DC9B0;
 }
 
 .hljs-emphasis {
