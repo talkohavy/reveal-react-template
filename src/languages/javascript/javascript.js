@@ -74,12 +74,6 @@ export default function registerJavascriptLanguage(hljs) {
     illegal: /%/,
   };
 
-  const UPPER_CASE_CONSTANT = {
-    relevance: 0,
-    match: /\b[A-Z][A-Z_0-9]+\b/,
-    className: 'variable.constant',
-  };
-
   function noneOf(list) {
     return regex.concat('(?!', list.join('|'), ')');
   }
@@ -302,7 +296,6 @@ export default function registerJavascriptLanguage(hljs) {
       //   contains: [PARAMS],
       // },
       FUNCTION_CALL,
-      UPPER_CASE_CONSTANT,
       CLASS_AND_EXTENDS_RULE,
       GETTER_OR_SETTER,
       {
