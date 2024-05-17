@@ -13,6 +13,7 @@ import { getCommentRule } from './rules/commentRule';
 import { CONST_AND_LET_VARIABLE_NAME_RULE } from './rules/constAndLetVariableNameRule';
 import { getCssRule } from './rules/cssRule';
 import { CURLY_BRACES_RULE } from './rules/curlyBracesRule';
+import { getFunctionCallRule } from './rules/functionCallRule';
 import { getGraphQlRule } from './rules/graphQlRule';
 import { getHtmlRule } from './rules/htmlRule';
 import { NUMBER_RULE } from './rules/numberRule';
@@ -31,6 +32,7 @@ export default function registerJavascriptLanguage(hljs) {
   const TEMPLATE_STRING = getStringLiteralRule(hljs);
   const COMMENT_RULE = getCommentRule(hljs);
   const CLASS_AND_EXTENDS_RULE = getClassAndExtendsRule(hljs);
+  const FUNCTION_CALL_RULE = getFunctionCallRule(hljs);
   const GRAPHQL_TEMPLATE_RULE = getGraphQlRule(hljs);
 
   const SUBST_AND_COMMENTS = [].concat(COMMENT_RULE, SUBST.contains);
@@ -72,24 +74,6 @@ export default function registerJavascriptLanguage(hljs) {
     label: 'func.def',
     contains: [PARAMS],
     illegal: /%/,
-  };
-
-  function noneOf(list) {
-    return regex.concat('(?!', list.join('|'), ')');
-  }
-
-  const LOWERCASE_IDENT_RE = '[a-z][A-Za-z0-9$_]*';
-
-  const FUNCTION_CALL = {
-    match: regex.concat(
-      /\b/,
-      noneOf(['super', 'import', 'constructor'].map((x) => `${x}\\s*\\(`)),
-      LOWERCASE_IDENT_RE,
-      IDENT_RE,
-      regex.lookahead(/\s*\(/),
-    ),
-    className: 'title.function',
-    relevance: 0,
   };
 
   const PROPERTY_ACCESS = {
@@ -295,12 +279,19 @@ export default function registerJavascriptLanguage(hljs) {
       //   className: { 1: 'title.func7tion' },
       //   contains: [PARAMS],
       // },
-      FUNCTION_CALL,
+      FUNCTION_CALL_RULE,
       CLASS_AND_EXTENDS_RULE,
       GETTER_OR_SETTER,
       {
         match: /\$[(.]/, // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
       },
+      // The UPPERCASE_CONSTANT_RULE:
+      // - Makes JSON appear as white instead of green (which is what VSCode does):
+      // {
+      //   relevance: 0,
+      //   match: /\b[A-Z][A-Z_0-9]+\b/,
+      //   className: 'variable.constant',
+      // },
     ],
   };
 }

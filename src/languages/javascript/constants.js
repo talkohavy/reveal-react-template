@@ -4,6 +4,7 @@ import { keywordGroup2 } from './rules/keywordGroup2';
 
 const FRAGMENT = { begin: '<>', end: '</>' };
 const IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
+const LOWERCASED_VARIABLE_RE = '[a-z][A-Za-z0-9$_]*';
 
 // https://tc39.es/ecma262/#sec-literals-numeric-literals
 const decimalDigits = '[0-9](_?[0-9])*';
@@ -29,4 +30,4 @@ const SUBST = {
   contains: [], // defined later
 };
 
-export { FRAGMENT, IDENT_RE, KEYWORDS, SUBST, decimalDigits, decimalInteger, fraction };
+export { FRAGMENT, IDENT_RE, KEYWORDS, LOWERCASED_VARIABLE_RE, SUBST, decimalDigits, decimalInteger, fraction };
