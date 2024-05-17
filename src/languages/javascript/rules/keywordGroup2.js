@@ -11,6 +11,7 @@ const keywordGroup2 = [
   'debugger',
   'static',
   'extends',
+  'constructor',
   'of',
   'in',
 ];

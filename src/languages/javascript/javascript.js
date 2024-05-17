@@ -7,7 +7,6 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 // import * as ECMAScript from '../ecmascript';
 import { FRAGMENT, IDENT_RE, KEYWORDS, SUBST } from './constants';
-import { GLOBAL_CLASSES } from './ecmaScript';
 import { ARRAY_BRACKET_RULE } from './rules/arrayBracketsRule';
 import { getClassAndExtendsRule } from './rules/classAndExtendsRules';
 import { getCommentRule } from './rules/commentRule';
@@ -56,29 +55,6 @@ export default function registerJavascriptLanguage(hljs) {
     contains: PARAMS_CONTAINS,
   };
 
-  const CLASS_REFERENCE = {
-    relevance: 0,
-    match: regex.either(
-      // Hard coded exceptions
-      /\bJSON/,
-      // Float32Array, OutT
-      // /\b[A-Z][a-z]+([A-Z][a-z]*|\d)*/, // <--- commented out because it colored imported named Objects beginning with a capital letter.
-      // CSSFactory, CSSFactoryT
-      /\b[A-Z]{2,}([A-Z][a-z]+|\d)+([A-Z][a-z]*)*/,
-      // FPs, FPsT
-      /\b[A-Z]{2,}[a-z]+([A-Z][a-z]+|\d)*([A-Z][a-z]*)*/,
-      // P
-      // single letters are not highlighted
-      // BLAH
-      // this will be flagged as a UPPER_CASE_CONSTANT instead
-    ),
-    className: 'title.class',
-    keywords: {
-      // se we still get relevance credit for JS library classes
-      _: GLOBAL_CLASSES,
-    },
-  };
-
   const FUNCTION_DEFINITION = {
     variants: [
       {
@@ -113,7 +89,7 @@ export default function registerJavascriptLanguage(hljs) {
   const FUNCTION_CALL = {
     match: regex.concat(
       /\b/,
-      noneOf(['super', 'import'].map((x) => `${x}\\s*\\(`)),
+      noneOf(['super', 'import', 'constructor'].map((x) => `${x}\\s*\\(`)),
       LOWERCASE_IDENT_RE,
       IDENT_RE,
       regex.lookahead(/\s*\(/),
@@ -178,7 +154,7 @@ export default function registerJavascriptLanguage(hljs) {
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
     keywords: KEYWORDS,
     // this will be extended by TypeScript
-    exports: { PARAMS_CONTAINS, CLASS_REFERENCE },
+    exports: { PARAMS_CONTAINS },
     illegal: /#(?![$_A-z])/,
     contains: [
       hljs.SHEBANG({
@@ -200,7 +176,6 @@ export default function registerJavascriptLanguage(hljs) {
       TEMPLATE_STRING,
       COMMENT_RULE,
       NUMBER_RULE,
-      CLASS_REFERENCE,
       // Skip numbers when they are part of a variable name
       // { match: /\$\d+/ }, // <--- seems like this is not needed
       {
@@ -296,7 +271,7 @@ export default function registerJavascriptLanguage(hljs) {
         // bounding ( ). There could be any number of sub-expressions inside
         // also surrounded by parens.
         begin:
-          `\\b(?!function)${hljs.UNDERSCORE_IDENT_RE}\\(` + // first parens
+          `\\b(?!function)(?<=constructor)${hljs.UNDERSCORE_IDENT_RE}\\(` + // first parens
           '[^()]*(\\(' +
           '[^()]*(\\(' +
           '[^()]*' +
@@ -320,11 +295,12 @@ export default function registerJavascriptLanguage(hljs) {
         match: `\\$${IDENT_RE}`,
         relevance: 0,
       },
-      {
-        match: [/\bconstructor(?=\s*\()/],
-        className: { 1: 'title.function' },
-        contains: [PARAMS],
-      },
+      // WE DON'T NEED TO HANDLE constructor AS IF A UNIQUE CASE!!! (Or do we...?)
+      // {
+      //   match: [/\bconstructor(?=\s*\()/],
+      //   className: { 1: 'title.func7tion' },
+      //   contains: [PARAMS],
+      // },
       FUNCTION_CALL,
       UPPER_CASE_CONSTANT,
       CLASS_AND_EXTENDS_RULE,
