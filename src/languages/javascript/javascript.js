@@ -6,9 +6,10 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
 // import * as ECMAScript from '../ecmascript';
-import { FRAGMENT, IDENT_RE, decimalDigits, decimalInteger, fraction } from './constants';
+import { FRAGMENT, IDENT_RE } from './constants';
 import { GLOBAL_CLASSES } from './ecmaScript';
 import { KEYWORDS } from './keywords';
+import { NUMBER_RULE } from './rules/numberRule';
 import { USE_STRICT_RULE } from './rules/useStrictRule';
 import { getXmlTagRules } from './rules/xmlTags';
 
@@ -16,30 +17,6 @@ export default function registerJavascriptLanguage(hljs) {
   const { regex } = hljs;
 
   const XML_TAG_RULES = getXmlTagRules();
-
-  const NUMBER_RULE = {
-    className: 'number',
-    variants: [
-      // DecimalLiteral
-      {
-        begin: `(\\b(${decimalInteger})((${fraction})|\\.)?|(${fraction}))` + `[eE][+-]?(${decimalDigits})\\b`,
-      },
-      { begin: `\\b(${decimalInteger})\\b((${fraction})\\b|\\.)?|(${fraction})\\b` },
-
-      // DecimalBigIntegerLiteral
-      { begin: '\\b(0|[1-9](_?[0-9])*)n\\b' },
-
-      // NonDecimalIntegerLiteral
-      { begin: '\\b0[xX][0-9a-fA-F](_?[0-9a-fA-F])*n?\\b' },
-      { begin: '\\b0[bB][0-1](_?[0-1])*n?\\b' },
-      { begin: '\\b0[oO][0-7](_?[0-7])*n?\\b' },
-
-      // LegacyOctalIntegerLiteral (does not include underscore separators)
-      // https://tc39.es/ecma262/#sec-additional-syntax-numeric-literals
-      { begin: '\\b0[0-7]+n?\\b' },
-    ],
-    relevance: 0,
-  };
 
   const SUBST = {
     className: 'subst',
