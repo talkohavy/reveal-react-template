@@ -90,7 +90,7 @@ export default function registerJavascriptLanguage(hljs) {
   const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS,
-    keyword2: ['async'],
+    keyword2: ['async', 'new'],
     literal: ECMAScript.LITERALS,
     built_in: ECMAScript.BUILT_INS,
     'variable.language': ECMAScript.BUILT_IN_VARIABLES,
@@ -345,10 +345,13 @@ export default function registerJavascriptLanguage(hljs) {
     return regex.concat('(?!', list.join('|'), ')');
   }
 
+  const LOWERCASE_IDENT_RE = '[a-z][A-Za-z0-9$_]*';
+
   const FUNCTION_CALL = {
     match: regex.concat(
       /\b/,
       noneOf([...ECMAScript.BUILT_IN_GLOBALS, 'super', 'import'].map((x) => `${x}\\s*\\(`)),
+      LOWERCASE_IDENT_RE,
       IDENT_RE,
       regex.lookahead(/\s*\(/),
     ),
