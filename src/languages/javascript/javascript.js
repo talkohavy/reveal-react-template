@@ -9,8 +9,10 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 import { FRAGMENT, IDENT_RE } from './constants';
 import { GLOBAL_CLASSES } from './ecmaScript';
 import { KEYWORDS } from './keywords';
+import { CONST_AND_LET_VARIABLE_NAME_RULE } from './rules/constAndLetVariableNameRule';
 import { NUMBER_RULE } from './rules/numberRule';
 import { USE_STRICT_RULE } from './rules/useStrictRule';
+import { VAR_VARIABLE_NAME_RULE } from './rules/varVariableNameRule';
 import { getXmlTagRules } from './rules/xmlTags';
 
 export default function registerJavascriptLanguage(hljs) {
@@ -306,6 +308,8 @@ export default function registerJavascriptLanguage(hljs) {
         relevance: 5,
       }),
       USE_STRICT_RULE,
+      CONST_AND_LET_VARIABLE_NAME_RULE,
+      VAR_VARIABLE_NAME_RULE,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       HTML_TEMPLATE,

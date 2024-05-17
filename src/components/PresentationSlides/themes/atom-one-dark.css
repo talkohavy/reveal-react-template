@@ -61,6 +61,16 @@ hue-6-2: #e6c07b
   color: #e06c75;
 }
 
+/* variable names instantiated with const or let */
+.hljs-variable-name {
+  color: #4ab9ee;
+}
+
+/* variable names instantiated with var */
+.hljs-var-variable-name {
+  color: #9CDCFE;
+}
+
 .hljs-meta,
 .hljs-string{
   color: #CE9178;
