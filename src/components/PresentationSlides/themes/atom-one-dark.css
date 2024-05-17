@@ -28,8 +28,10 @@ hue-6-2: #e6c07b
   color: #6A9956;
 }
 
-/* keywords2: The keywords: const, let, var, function, async */
-/* doctag is jsdoc stuff, like @typedef and more */
+/* hljs-variable.language_    = this                              */
+/* hljs-keywords2             = const, let, var, function, async  */
+/* hljs-doctag                = jsdoc stuff. like, @typedef       */
+.hljs-variable.language_,
 .hljs-array-bracket,
 .hljs-doctag,
 .hljs-keyword2 {

@@ -6,14 +6,19 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
 // import * as ECMAScript from '../ecmascript';
-import { FRAGMENT, IDENT_RE } from './constants';
+import { FRAGMENT, IDENT_RE, KEYWORDS, SUBST } from './constants';
 import { GLOBAL_CLASSES } from './ecmaScript';
-import { KEYWORDS } from './keywords';
 import { ARRAY_BRACKET_RULE } from './rules/arrayBracketsRule';
+import { getClassAndExtendsRule } from './rules/classAndExtendsRules';
+import { getCommentRule } from './rules/commentRule';
 import { CONST_AND_LET_VARIABLE_NAME_RULE } from './rules/constAndLetVariableNameRule';
+import { getCssRule } from './rules/cssRule';
 import { CURLY_BRACES_RULE } from './rules/curlyBracesRule';
+import { getGraphQlRule } from './rules/graphQlRule';
+import { getHtmlRule } from './rules/htmlRule';
 import { NUMBER_RULE } from './rules/numberRule';
 import { PARENTHESIS_RULE } from './rules/parenthesisRule';
+import { getStringLiteralRule } from './rules/stringLiteralRule';
 import { USE_STRICT_RULE } from './rules/useStrictRule';
 import { VAR_VARIABLE_NAME_RULE } from './rules/varVariableNameRule';
 import { getXmlTagRules } from './rules/xmlTags';
@@ -22,112 +27,14 @@ export default function registerJavascriptLanguage(hljs) {
   const { regex } = hljs;
 
   const XML_TAG_RULES = getXmlTagRules();
+  const HTML_TEMPLATE_RULE = getHtmlRule(hljs);
+  const CSS_TEMPLATE_RULE = getCssRule(hljs);
+  const TEMPLATE_STRING = getStringLiteralRule(hljs);
+  const COMMENT_RULE = getCommentRule(hljs);
+  const CLASS_AND_EXTENDS_RULE = getClassAndExtendsRule(hljs);
+  const GRAPHQL_TEMPLATE_RULE = getGraphQlRule(hljs);
 
-  const SUBST = {
-    className: 'subst',
-    begin: '\\$\\{',
-    end: '\\}',
-    keywords: KEYWORDS,
-    contains: [], // defined later
-  };
-  const HTML_TEMPLATE = {
-    begin: '.?html`',
-    end: '',
-    starts: {
-      end: '`',
-      returnEnd: false,
-      contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-      subLanguage: 'xml',
-    },
-  };
-  const CSS_TEMPLATE = {
-    begin: '.?css`',
-    end: '',
-    starts: {
-      end: '`',
-      returnEnd: false,
-      contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-      subLanguage: 'css',
-    },
-  };
-  const GRAPHQL_TEMPLATE = {
-    begin: '.?gql`',
-    end: '',
-    starts: {
-      end: '`',
-      returnEnd: false,
-      contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-      subLanguage: 'graphql',
-    },
-  };
-  const TEMPLATE_STRING = {
-    className: 'string',
-    begin: '`',
-    end: '`',
-    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-  };
-  const JSDOC_COMMENT = hljs.COMMENT(/\/\*\*(?!\/)/, '\\*/', {
-    relevance: 0,
-    contains: [
-      {
-        begin: '(?=@[A-Za-z]+)',
-        relevance: 0,
-        contains: [
-          {
-            className: 'doctag',
-            begin: '@[A-Za-z]+',
-          },
-          {
-            className: 'type',
-            begin: '\\{',
-            end: '\\}',
-            excludeEnd: true,
-            excludeBegin: true,
-            relevance: 0,
-          },
-          {
-            className: 'variable',
-            begin: `${IDENT_RE}(?=\\s*(-)|$)`,
-            endsParent: true,
-            relevance: 0,
-          },
-          // eat spaces (not newlines) so we can find
-          // types or variables
-          {
-            begin: /(?=[^\n])\s/,
-            relevance: 0,
-          },
-        ],
-      },
-    ],
-  });
-  const COMMENT = {
-    className: 'comment',
-    variants: [JSDOC_COMMENT, hljs.C_BLOCK_COMMENT_MODE, hljs.C_LINE_COMMENT_MODE],
-  };
-  const SUBST_INTERNALS = [
-    hljs.APOS_STRING_MODE,
-    hljs.QUOTE_STRING_MODE,
-    HTML_TEMPLATE,
-    CSS_TEMPLATE,
-    GRAPHQL_TEMPLATE,
-    TEMPLATE_STRING,
-    // Skip numbers when they are part of a variable name
-    { match: /\$\d+/ },
-    NUMBER_RULE,
-    // This is intentional:
-    // See https://github.com/highlightjs/highlight.js/issues/3288
-    // hljs.REGEXP_MODE
-  ];
-  SUBST.contains = SUBST_INTERNALS.concat({
-    // we need to pair up {} inside our subst to prevent
-    // it from ending too early by matching another }
-    begin: /\{/,
-    end: /\}/,
-    keywords: KEYWORDS,
-    contains: ['self'].concat(SUBST_INTERNALS),
-  });
-  const SUBST_AND_COMMENTS = [].concat(COMMENT, SUBST.contains);
+  const SUBST_AND_COMMENTS = [].concat(COMMENT_RULE, SUBST.contains);
   const PARAMS_CONTAINS = SUBST_AND_COMMENTS.concat([
     // eat recursive parens in sub expressions
     {
@@ -137,6 +44,7 @@ export default function registerJavascriptLanguage(hljs) {
       contains: ['self'].concat(SUBST_AND_COMMENTS),
     },
   ]);
+
   const PARAMS = {
     className: 'params',
     // convert this to negative lookbehind in v12
@@ -146,38 +54,6 @@ export default function registerJavascriptLanguage(hljs) {
     excludeEnd: true,
     keywords: KEYWORDS,
     contains: PARAMS_CONTAINS,
-  };
-
-  // ES6 classes
-  const CLASS_OR_EXTENDS = {
-    variants: [
-      // class Car extends vehicle
-      {
-        match: [
-          /class/,
-          /\s+/,
-          IDENT_RE,
-          /\s+/,
-          /extends/,
-          /\s+/,
-          regex.concat(IDENT_RE, '(', regex.concat(/\./, IDENT_RE), ')*'),
-        ],
-        scope: {
-          1: 'keyword',
-          3: 'title.class',
-          5: 'keyword',
-          7: 'title.class.inherited',
-        },
-      },
-      // class Car
-      {
-        match: [/class/, /\s+/, IDENT_RE],
-        scope: {
-          1: 'keyword',
-          3: 'title.class',
-        },
-      },
-    ],
   };
 
   const CLASS_REFERENCE = {
@@ -318,15 +194,15 @@ export default function registerJavascriptLanguage(hljs) {
       ARRAY_BRACKET_RULE,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
-      HTML_TEMPLATE,
-      CSS_TEMPLATE,
-      GRAPHQL_TEMPLATE,
+      HTML_TEMPLATE_RULE,
+      CSS_TEMPLATE_RULE,
+      GRAPHQL_TEMPLATE_RULE,
       TEMPLATE_STRING,
-      COMMENT,
-      // Skip numbers when they are part of a variable name
-      // { match: /\$\d+/ }, // <--- seems like this is not needed
+      COMMENT_RULE,
       NUMBER_RULE,
       CLASS_REFERENCE,
+      // Skip numbers when they are part of a variable name
+      // { match: /\$\d+/ }, // <--- seems like this is not needed
       {
         className: 'attr',
         begin: IDENT_RE + regex.lookahead(':'),
@@ -339,7 +215,7 @@ export default function registerJavascriptLanguage(hljs) {
         keywords: 'return throw case',
         relevance: 0,
         contains: [
-          COMMENT,
+          COMMENT_RULE,
           hljs.REGEXP_MODE,
           {
             className: 'function',
@@ -451,7 +327,7 @@ export default function registerJavascriptLanguage(hljs) {
       },
       FUNCTION_CALL,
       UPPER_CASE_CONSTANT,
-      CLASS_OR_EXTENDS,
+      CLASS_AND_EXTENDS_RULE,
       GETTER_OR_SETTER,
       {
         match: /\$[(.]/, // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
