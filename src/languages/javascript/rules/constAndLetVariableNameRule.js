@@ -1,14 +1,24 @@
 import { IDENT_RE } from '../constants';
 
 const CONST_AND_LET_VARIABLE_NAME_RULE = {
-  className: 'variable-declaration',
-  begin: /(?<=\b(const|let)\b)\s+/,
-  end: /[\s,;]/,
+  begin: /(?<=\b(const|let)\b\s+\{?\s*)/,
+  end: /[;}=]/,
+  returnEnd: false,
   contains: [
     {
+      begin: /\{/,
+      end: /(?=.)/,
+      className: 'curly-brace',
+    },
+    {
+      begin: /\}/,
+      end: /(?=.)/,
+      className: 'curly-brace',
+    },
+    {
+      className: 'variable-name',
       begin: IDENT_RE,
       relevance: 0,
-      className: 'variable-name',
     },
   ],
 };

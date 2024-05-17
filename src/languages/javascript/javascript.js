@@ -9,8 +9,11 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 import { FRAGMENT, IDENT_RE } from './constants';
 import { GLOBAL_CLASSES } from './ecmaScript';
 import { KEYWORDS } from './keywords';
+import { ARRAY_BRACKET_RULE } from './rules/arrayBracketsRule';
 import { CONST_AND_LET_VARIABLE_NAME_RULE } from './rules/constAndLetVariableNameRule';
+import { CURLY_BRACES_RULE } from './rules/curlyBracesRule';
 import { NUMBER_RULE } from './rules/numberRule';
+import { PARENTHESIS_RULE } from './rules/parenthesisRule';
 import { USE_STRICT_RULE } from './rules/useStrictRule';
 import { VAR_VARIABLE_NAME_RULE } from './rules/varVariableNameRule';
 import { getXmlTagRules } from './rules/xmlTags';
@@ -310,6 +313,9 @@ export default function registerJavascriptLanguage(hljs) {
       USE_STRICT_RULE,
       CONST_AND_LET_VARIABLE_NAME_RULE,
       VAR_VARIABLE_NAME_RULE,
+      CURLY_BRACES_RULE,
+      PARENTHESIS_RULE,
+      ARRAY_BRACKET_RULE,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       HTML_TEMPLATE,
@@ -318,7 +324,7 @@ export default function registerJavascriptLanguage(hljs) {
       TEMPLATE_STRING,
       COMMENT,
       // Skip numbers when they are part of a variable name
-      { match: /\$\d+/ },
+      // { match: /\$\d+/ }, // <--- seems like this is not needed
       NUMBER_RULE,
       CLASS_REFERENCE,
       {

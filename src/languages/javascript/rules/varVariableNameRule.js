@@ -1,10 +1,20 @@
 import { IDENT_RE } from '../constants';
 
 const VAR_VARIABLE_NAME_RULE = {
-  className: 'variable-declaration',
-  begin: /(?<=\bvar\b)\s+/,
-  end: /[\s,;]/,
+  className: 'oops-you-made-a-mistake-1',
+  begin: /(?<=\bvar\b\s+\{?\s*)/,
+  end: /[;}=]/,
   contains: [
+    {
+      begin: /\{/,
+      end: /(?=.)/,
+      className: 'curly-brace',
+    },
+    {
+      begin: /\}/,
+      end: /(?=.)/,
+      className: 'curly-brace',
+    },
     {
       begin: IDENT_RE,
       relevance: 0,
