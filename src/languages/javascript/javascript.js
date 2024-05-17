@@ -9,6 +9,7 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 import { FRAGMENT, IDENT_RE, decimalDigits, decimalInteger, fraction } from './constants';
 import { GLOBAL_CLASSES } from './ecmaScript';
 import { KEYWORDS } from './keywords';
+import { USE_STRICT_RULE } from './rules/useStrictRule';
 import { getXmlTagRules } from './rules/xmlTags';
 
 export default function registerJavascriptLanguage(hljs) {
@@ -220,13 +221,6 @@ export default function registerJavascriptLanguage(hljs) {
     },
   };
 
-  const USE_STRICT = {
-    label: 'use_strict',
-    className: 'meta',
-    relevance: 10,
-    begin: /^\s*['"]use (strict|asm)['"]/,
-  };
-
   const FUNCTION_DEFINITION = {
     variants: [
       {
@@ -334,7 +328,7 @@ export default function registerJavascriptLanguage(hljs) {
         binary: 'node',
         relevance: 5,
       }),
-      USE_STRICT,
+      USE_STRICT_RULE,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       HTML_TEMPLATE,
