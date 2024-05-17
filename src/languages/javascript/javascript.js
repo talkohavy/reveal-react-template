@@ -5,92 +5,23 @@ Category: common, scripting, web
 Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
-import * as ECMAScript from './ecmascript';
+import * as ECMAScript from '../ecmascript';
+import { FRAGMENT } from './constants';
+import { getXmlTagRules } from './rules/xmlTags';
 
 export default function registerJavascriptLanguage(hljs) {
   const { regex } = hljs;
-  /**
-   * Takes a string like "<Booger" and checks to see
-   * if we can find a matching "</Booger" later in the
-   * content.
-   * @param {RegExpMatchArray} match
-   * @param {{after:number}} param1
-   */
-  const hasClosingTag = (match, { after }) => {
-    const tag = `</${match[0].slice(1)}`;
-    const pos = match.input.indexOf(tag, after);
-    return pos !== -1;
-  };
 
   const { IDENT_RE } = ECMAScript;
-  const FRAGMENT = {
-    begin: '<>',
-    end: '</>',
-  };
+
   // to avoid some special cases inside isTrulyOpeningTag
-  const XML_SELF_CLOSING = /<[A-Za-z0-9\\._:-]+\s*\/>/;
-  const XML_TAG = {
-    begin: /<[A-Za-z0-9\\._:-]+/,
-    end: /\/[A-Za-z0-9\\._:-]+>|\/>/,
-    /**
-     * @param {RegExpMatchArray} match
-     * @param {import('highlight.js').CallbackResponse} response
-     */
-    isTrulyOpeningTag: (match, response) => {
-      const afterMatchIndex = match[0].length + match.index;
-      const nextChar = match.input[afterMatchIndex];
-      if (
-        // HTML should not include another raw `<` inside a tag
-        // nested type?
-        // `<Array<Array<number>>`, etc.
-        nextChar === '<' ||
-        // the , gives away that this is not HTML
-        // `<T, A extends keyof T, V>`
-        nextChar === ','
-      ) {
-        response.ignoreMatch();
-        return;
-      }
 
-      // `<something>`
-      // Quite possibly a tag, lets look for a matching closing tag...
-      if (nextChar === '>') {
-        // if we cannot find a matching closing tag, then we
-        // will ignore it
-        if (!hasClosingTag(match, { after: afterMatchIndex })) {
-          response.ignoreMatch();
-        }
-      }
+  const XML_TAG_RULES = getXmlTagRules();
 
-      // `<blah />` (self-closing)
-      // handled by simpleSelfClosing rule
-
-      let m;
-      const afterMatch = match.input.substring(afterMatchIndex);
-
-      // some more template typing stuff
-      //  <T = any>(key?: string) => Modify<
-      if ((m = afterMatch.match(/^\s*=/))) {
-        response.ignoreMatch();
-        return;
-      }
-
-      // `<From extends string>`
-      // technically this could be HTML, but it smells like a type
-      // NOTE: This is ugh, but added specifically for https://github.com/highlightjs/highlight.js/issues/3276
-      if ((m = afterMatch.match(/^\s+extends\s+/))) {
-        if (m.index === 0) {
-          response.ignoreMatch();
-          // eslint-disable-next-line no-useless-return
-          return;
-        }
-      }
-    },
-  };
   const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS,
-    keyword2: ['async', 'new'],
+    keyword2: ['async', 'new', 'const', 'let', 'var'],
     literal: ECMAScript.LITERALS,
     built_in: ECMAScript.BUILT_INS,
     'variable.language': ECMAScript.BUILT_IN_VARIABLES,
@@ -495,20 +426,21 @@ export default function registerJavascriptLanguage(hljs) {
             // JSX
             variants: [
               { begin: FRAGMENT.begin, end: FRAGMENT.end },
-              { match: XML_SELF_CLOSING },
+              // XML_SELF_CLOSING
+              { match: /<[A-Za-z0-9\\._:-]+\s*\/>/ },
               {
-                begin: XML_TAG.begin,
+                begin: XML_TAG_RULES.begin,
                 // we carefully check the opening tag to see if it truly
                 // is a tag and not a false positive
-                'on:begin': XML_TAG.isTrulyOpeningTag,
-                end: XML_TAG.end,
+                'on:begin': XML_TAG_RULES.isTrulyOpeningTag,
+                end: XML_TAG_RULES.end,
               },
             ],
             subLanguage: 'xml',
             contains: [
               {
-                begin: XML_TAG.begin,
-                end: XML_TAG.end,
+                begin: XML_TAG_RULES.begin,
+                end: XML_TAG_RULES.end,
                 skip: true,
                 contains: ['self'],
               },
