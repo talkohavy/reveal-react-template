@@ -7,6 +7,7 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 import * as ECMAScript from '../ecmascript';
 import { FRAGMENT } from './constants';
+import { group2 } from './rules/keywords2';
 import { getXmlTagRules } from './rules/xmlTags';
 
 export default function registerJavascriptLanguage(hljs) {
@@ -14,17 +15,15 @@ export default function registerJavascriptLanguage(hljs) {
 
   const { IDENT_RE } = ECMAScript;
 
-  // to avoid some special cases inside isTrulyOpeningTag
-
   const XML_TAG_RULES = getXmlTagRules();
 
   const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS,
-    keyword2: ['async', 'new', 'const', 'let', 'var'],
     literal: ECMAScript.LITERALS,
     built_in: ECMAScript.BUILT_INS,
     'variable.language': ECMAScript.BUILT_IN_VARIABLES,
+    keyword2: group2,
   };
 
   // https://tc39.es/ecma262/#sec-literals-numeric-literals

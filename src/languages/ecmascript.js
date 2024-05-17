@@ -24,7 +24,7 @@ const KEYWORDS = [
   'try',
   'switch',
   'continue',
-  'typeof',
+  // 'typeof', // <--- going into group2
   'delete',
   'let',
   'yield',
