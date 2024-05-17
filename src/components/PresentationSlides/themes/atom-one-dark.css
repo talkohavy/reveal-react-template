@@ -61,7 +61,10 @@ hue-6-2: #e6c07b
   color: #e06c75;
 }
 
-.hljs-string,
+.hljs-string{
+  color: #CE9178;
+}
+
 .hljs-regexp,
 .hljs-addition,
 .hljs-attribute,

@@ -5,26 +5,16 @@ Category: common, scripting, web
 Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
-import * as ECMAScript from '../ecmascript';
-import { FRAGMENT } from './constants';
-import { group2 } from './rules/keywords2';
+// import * as ECMAScript from '../ecmascript';
+import { FRAGMENT, IDENT_RE } from './constants';
+import { GLOBAL_CLASSES } from './ecmaScript';
+import { KEYWORDS } from './keywords';
 import { getXmlTagRules } from './rules/xmlTags';
 
 export default function registerJavascriptLanguage(hljs) {
   const { regex } = hljs;
 
-  const { IDENT_RE } = ECMAScript;
-
   const XML_TAG_RULES = getXmlTagRules();
-
-  const KEYWORDS = {
-    $pattern: ECMAScript.IDENT_RE,
-    keyword: ECMAScript.KEYWORDS,
-    literal: ECMAScript.LITERALS,
-    built_in: ECMAScript.BUILT_INS,
-    'variable.language': ECMAScript.BUILT_IN_VARIABLES,
-    keyword2: group2,
-  };
 
   // https://tc39.es/ecma262/#sec-literals-numeric-literals
   const decimalDigits = '[0-9](_?[0-9])*';
@@ -231,11 +221,8 @@ export default function registerJavascriptLanguage(hljs) {
     ),
     className: 'title.class',
     keywords: {
-      _: [
-        // se we still get relevance credit for JS library classes
-        ...ECMAScript.TYPES,
-        ...ECMAScript.ERROR_TYPES,
-      ],
+      // se we still get relevance credit for JS library classes
+      _: GLOBAL_CLASSES,
     },
   };
 
@@ -280,7 +267,7 @@ export default function registerJavascriptLanguage(hljs) {
   const FUNCTION_CALL = {
     match: regex.concat(
       /\b/,
-      noneOf([...ECMAScript.BUILT_IN_GLOBALS, 'super', 'import'].map((x) => `${x}\\s*\\(`)),
+      noneOf(['super', 'import'].map((x) => `${x}\\s*\\(`)),
       LOWERCASE_IDENT_RE,
       IDENT_RE,
       regex.lookahead(/\s*\(/),

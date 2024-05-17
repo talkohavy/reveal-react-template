@@ -7,13 +7,14 @@ Website: https://www.typescriptlang.org
 Category: common, scripting
 */
 
-import * as ECMAScript from './ecmascript';
 import javascript from './javascript';
+import { IDENT_RE } from './javascript/constants';
+import { GLOBAL_CLASSES, GLOBAL_FUNCTIONS, GLOBAL_VARIABLES, LITERALS } from './javascript/ecmaScript';
+import { KEYWORDS as JAVASCRIPT_KEYWORDS } from './javascript/keywords';
 
 export default function registerTypescriptLanguage(hljs) {
   const tsLanguage = javascript(hljs);
 
-  const { IDENT_RE } = ECMAScript;
   const TYPES = ['any', 'void', 'number', 'boolean', 'string', 'object', 'never', 'symbol', 'bigint', 'unknown'];
   const NAMESPACE = {
     begin: [/namespace/, /\s+/, hljs.IDENT_RE],
@@ -59,12 +60,12 @@ export default function registerTypescriptLanguage(hljs) {
   */
 
   const KEYWORDS = {
-    $pattern: ECMAScript.IDENT_RE,
-    keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS),
+    $pattern: IDENT_RE,
+    keyword: JAVASCRIPT_KEYWORDS.concat(TS_SPECIFIC_KEYWORDS),
     keyword2: tsLanguage.keywords.keyword2.concat(['type', 'declare']),
-    literal: ECMAScript.LITERALS,
-    built_in: ECMAScript.BUILT_INS.concat(TYPES),
-    'variable.language': ECMAScript.BUILT_IN_VARIABLES,
+    literal: LITERALS,
+    built_in: GLOBAL_FUNCTIONS.concat(GLOBAL_CLASSES, TYPES),
+    'variable.language': GLOBAL_VARIABLES,
   };
   const DECORATOR = {
     className: 'meta',
