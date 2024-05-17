@@ -1,41 +1,60 @@
 /*
 
-Atom One Dark by Daniel Gamage
-Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
-
-base:    #282c34
-mono-1:  #abb2bf
-mono-2:  #818896
-mono-3:  #5c6370
-hue-1:   #56b6c2
-hue-2:   #61aeee
-hue-3:   #c678dd
-hue-4:   #98c379
-hue-5:   #e06c75
-hue-5-2: #be5046
-hue-6:   #d19a66
-hue-6-2: #e6c07b
+VSCode Dark by Tal Kohavy
 
 */
 
+/* Background & default font color */
 .hljs {
   color: #c0e4f6;
-  background: #262626;
+  background: #1f1f1f;
 }
 
-.hljs-comment,
-.hljs-quote {
-  color: #6A9956;
+/* Non-Highlighted Line-Numbers */
+.hljs-ln-line.hljs-ln-numbers {
+  opacity: 0.6;
+  color: rgb(223, 217, 217);
 }
 
+/* Highlighted Line-Numbers */
+.highlight-line .hljs-ln-line.hljs-ln-numbers {
+  opacity: 1;
+  color:#1bd41b;
+}
+
+
+/* keyword group 1: purple */
+.hljs-keyword,
+.hljs-formula {
+  color: #C586C0;
+}
+
+/* keyword group 2: blue */
 /* hljs-variable.language_    = this                              */
 /* hljs-keywords2             = const, let, var, function, async  */
 /* hljs-doctag                = jsdoc stuff. like, @typedef       */
 .hljs-variable.language_,
 .hljs-array-bracket,
+.hljs-arrow,
 .hljs-doctag,
 .hljs-keyword2 {
   color: #569CD6;
+}
+
+.hljs-variable-name {
+/* variable names instantiated with const or let */
+  color: #4ab9ee;
+}
+
+/* variable names instantiated with var */
+.hljs-var-variable-name {
+  color: #9CDCFE;
+}
+
+/* Comments & Strings: green */
+.hljs-comment,
+.hljs-quote {
+  color: #6A9956;
 }
 
 /* A function's name */
@@ -47,11 +66,6 @@ hue-6-2: #e6c07b
 /* All the values: true, false, null, undefined, Infinity */
 .hljs-literal {
   color: #569CD6;
-}
-
-.hljs-keyword,
-.hljs-formula {
-  color: #C586C0;
 }
 
 /* A Jsx Component: */
@@ -69,16 +83,6 @@ hue-6-2: #e6c07b
 .hljs-parenthesis,
 .hljs-curly-brace {
   color: yellow;
-}
-
-/* variable names instantiated with const or let */
-.hljs-variable-name {
-  color: #4ab9ee;
-}
-
-/* variable names instantiated with var */
-.hljs-var-variable-name {
-  color: #9CDCFE;
 }
 
 .hljs-meta,

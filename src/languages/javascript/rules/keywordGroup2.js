@@ -1,4 +1,5 @@
 const keywordGroup2 = [
+  'function',
   'class',
   'async',
   'new',
