@@ -6,7 +6,7 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
 // import * as ECMAScript from '../ecmascript';
-import { FRAGMENT, IDENT_RE } from './constants';
+import { FRAGMENT, IDENT_RE, decimalDigits, decimalInteger, fraction } from './constants';
 import { GLOBAL_CLASSES } from './ecmaScript';
 import { KEYWORDS } from './keywords';
 import { getXmlTagRules } from './rules/xmlTags';
@@ -16,20 +16,14 @@ export default function registerJavascriptLanguage(hljs) {
 
   const XML_TAG_RULES = getXmlTagRules();
 
-  // https://tc39.es/ecma262/#sec-literals-numeric-literals
-  const decimalDigits = '[0-9](_?[0-9])*';
-  const frac = `\\.(${decimalDigits})`;
-  // DecimalIntegerLiteral, including Annex B NonOctalDecimalIntegerLiteral
-  // https://tc39.es/ecma262/#sec-additional-syntax-numeric-literals
-  const decimalInteger = '0|[1-9](_?[0-9])*|0[0-7]*[89][0-9]*';
-  const NUMBER = {
+  const NUMBER_RULE = {
     className: 'number',
     variants: [
       // DecimalLiteral
       {
-        begin: `(\\b(${decimalInteger})((${frac})|\\.)?|(${frac}))` + `[eE][+-]?(${decimalDigits})\\b`,
+        begin: `(\\b(${decimalInteger})((${fraction})|\\.)?|(${fraction}))` + `[eE][+-]?(${decimalDigits})\\b`,
       },
-      { begin: `\\b(${decimalInteger})\\b((${frac})\\b|\\.)?|(${frac})\\b` },
+      { begin: `\\b(${decimalInteger})\\b((${fraction})\\b|\\.)?|(${fraction})\\b` },
 
       // DecimalBigIntegerLiteral
       { begin: '\\b(0|[1-9](_?[0-9])*)n\\b' },
@@ -137,7 +131,7 @@ export default function registerJavascriptLanguage(hljs) {
     TEMPLATE_STRING,
     // Skip numbers when they are part of a variable name
     { match: /\$\d+/ },
-    NUMBER,
+    NUMBER_RULE,
     // This is intentional:
     // See https://github.com/highlightjs/highlight.js/issues/3288
     // hljs.REGEXP_MODE
@@ -350,7 +344,7 @@ export default function registerJavascriptLanguage(hljs) {
       COMMENT,
       // Skip numbers when they are part of a variable name
       { match: /\$\d+/ },
-      NUMBER,
+      NUMBER_RULE,
       CLASS_REFERENCE,
       {
         className: 'attr',
