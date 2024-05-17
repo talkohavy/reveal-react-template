@@ -39,6 +39,7 @@ hue-6-2: #e6c07b
 }
 
 /* A function's name */
+.hljs-function-name,
 .hljs-title.function_ {
   color: #DCDCAA;
 }
