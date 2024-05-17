@@ -1,17 +1,11 @@
 const keywordGroup1 = [
   'as', // for exports
-  'in',
-  'of',
   'if',
   'for',
   'while',
   'finally',
-  'var',
-  'new',
-  // 'function',
   'do',
   'return',
-  'void',
   'else',
   'break',
   'catch',
@@ -23,23 +17,14 @@ const keywordGroup1 = [
   'try',
   'switch',
   'continue',
-  // 'typeof', // <--- going into group2
-  'delete',
-  'let',
   'yield',
-  // 'const',
-  'class',
-  // JS handles these with a special rule
-  // "get",
-  // "set",
-  'debugger',
-  // 'async',
-  'await',
-  'static',
   'import',
   'from',
   'export',
-  'extends',
+  'await',
+  // JS handles these with a special rule
+  // "get",
+  // "set",
 ];
 
 export { keywordGroup1 };

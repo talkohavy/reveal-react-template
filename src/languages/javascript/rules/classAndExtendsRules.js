@@ -18,7 +18,7 @@ function getClassAndExtendsRule(hljs) {
           regex.concat(IDENT_RE, '(', regex.concat(/\./, IDENT_RE), ')*'),
         ],
         scope: {
-          1: 'keyword',
+          1: 'keyword2',
           3: 'title.class',
           5: 'keyword',
           7: 'title.class.inherited',
@@ -28,7 +28,7 @@ function getClassAndExtendsRule(hljs) {
       {
         match: [/class/, /\s+/, IDENT_RE],
         scope: {
-          1: 'keyword',
+          1: 'keyword2',
           3: 'title.class',
         },
       },
