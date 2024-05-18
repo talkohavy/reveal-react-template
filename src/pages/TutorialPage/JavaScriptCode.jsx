@@ -6,7 +6,10 @@ export default function JavaScriptCode() {
     <Slide>
       <h3>JavaScript Code</h3>
 
-      <Code language='javascript' highlightLineNumbers='93-105'>
+      <Code
+        language='javascript'
+        //  highlightLineNumbers='93-105'
+      >
         {String.raw`'use strict'
 
 import { useMemo, useEffect } from 'react';
@@ -31,14 +34,14 @@ try {
 }
 
 /**
- * @typedef {import('../types').SlideConfig} SlideConfig
+ * @typedef {{name: string, age: number}} Person
  */
 
 const UPPER_CASE_CONST = 300;
 
 // TODO: need to fix this arrow function...
-const myArrowFunc = ( aaa ) => { return void Promise.resolve(5); }
-const myArrowFunc2 = async ( aaa ) => { return void Promise.resolve(5); }
+const myArrowFunc = (aaa) => { return void Promise.resolve(5); }
+const myArrowFunc2 = async (aaa) => Promise.resolve(5)
 
 function killMe(arr) {
     return void arr.pop();
@@ -64,10 +67,8 @@ const person = new Person('tal');
 JSON.stringify(person);
 
 /**
- * @param {import('react').PropsWithChildren<{
- *   slideConfig?: SlideConfig,
- *   className?: string
- * }>} props
+ * @description
+ * This component is about something 
  */
 export default function Slide ( props ) {
   const { children, slideConfig, className, ...rawRestProps } = props;

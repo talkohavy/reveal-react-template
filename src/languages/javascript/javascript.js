@@ -60,36 +60,23 @@ export default function registerJavascriptLanguage(hljs) {
         binary: 'node',
         relevance: 5,
       }),
-      CLASS_CALL_RULE,
-      FUNCTION_NAME_RULE,
       USE_STRICT_RULE,
+      FUNCTION_NAME_RULE,
       CONST_AND_LET_VARIABLE_NAME_RULE,
       VAR_VARIABLE_NAME_RULE,
       CURLY_BRACES_RULE,
       PARENTHESIS_RULE,
       ARRAY_BRACKET_RULE,
+      CLASS_CALL_RULE,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       HTML_TEMPLATE_RULE,
       CSS_TEMPLATE_RULE,
-      GRAPHQL_TEMPLATE_RULE,
-      TEMPLATE_STRING,
       COMMENT_RULE,
       NUMBER_RULE,
-      {
-        className: 'attr',
-        begin: IDENT_RE + regex.lookahead(':'),
-        relevance: 0,
-      },
-      // catch ... so it won't trigger the property rule below
-      {
-        match: /\.\.\./,
-        relevance: 0,
-      },
-      PROPERTY_ACCESS,
       FUNCTION_CALL_RULE,
-      CLASS_AND_EXTENDS_RULE,
       ARROW_RULE,
+      CLASS_AND_EXTENDS_RULE,
       {
         // JSX
         variants: [
@@ -115,6 +102,19 @@ export default function registerJavascriptLanguage(hljs) {
           },
         ],
       },
+      GRAPHQL_TEMPLATE_RULE,
+      TEMPLATE_STRING,
+      {
+        className: 'attr',
+        begin: IDENT_RE + regex.lookahead(':'),
+        relevance: 0,
+      },
+      // catch ... so it won't trigger the property rule below
+      {
+        match: /\.\.\./,
+        relevance: 0,
+      },
+      PROPERTY_ACCESS,
       {
         match: /\$[(.]/, // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
       },
