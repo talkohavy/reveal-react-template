@@ -1,7 +1,7 @@
 import { hasClosingTag } from '../helpers';
 
 function getXmlTagRules() {
-  const XML_TAG_RULES = {
+  return {
     begin: /<[A-Za-z0-9\\._:-]+/,
     end: /\/[A-Za-z0-9\\._:-]+>|\/>/,
     /**
@@ -20,8 +20,7 @@ function getXmlTagRules() {
         // `<T, A extends keyof T, V>`
         nextChar === ','
       ) {
-        response.ignoreMatch();
-        return;
+        return void response.ignoreMatch();
       }
 
       // `<something>`
@@ -29,9 +28,7 @@ function getXmlTagRules() {
       if (nextChar === '>') {
         // if we cannot find a matching closing tag, then we
         // will ignore it
-        if (!hasClosingTag(match, { after: afterMatchIndex })) {
-          response.ignoreMatch();
-        }
+        if (!hasClosingTag(match, { after: afterMatchIndex })) return void response.ignoreMatch();
       }
 
       // `<blah />` (self-closing)
@@ -42,10 +39,7 @@ function getXmlTagRules() {
 
       // some more template typing stuff
       //  <T = any>(key?: string) => Modify<
-      if ((m = afterMatch.match(/^\s*=/))) {
-        response.ignoreMatch();
-        return;
-      }
+      if ((m = afterMatch.match(/^\s*=/))) return void response.ignoreMatch();
 
       // `<From extends string>`
       // technically this could be HTML, but it smells like a type
@@ -59,8 +53,6 @@ function getXmlTagRules() {
       }
     },
   };
-
-  return XML_TAG_RULES;
 }
 
 export { getXmlTagRules };
