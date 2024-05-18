@@ -35,7 +35,7 @@ export type SlideConfig = {
    * @example
    * "linear-gradient(to bottom, #283b95, #17b2c3)"
    */
-  dataBackgroundGradient: string;
+  dataBackgroundGradient?: string;
   dataBackgroundImage?: string;
   dataBackgroundSize?: string;
   /**

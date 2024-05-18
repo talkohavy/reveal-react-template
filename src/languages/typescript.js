@@ -8,14 +8,13 @@ Category: common, scripting
 */
 
 import javascript from './javascript';
-import { IDENT_RE } from './javascript/constants';
-import { GLOBAL_CLASSES, GLOBAL_FUNCTIONS, GLOBAL_VARIABLES, LITERALS } from './javascript/ecmaScript';
-import { KEYWORDS as JAVASCRIPT_KEYWORDS } from './javascript/keywords';
+import { IDENT_RE, KEYWORDS as JAVASCRIPT_KEYWORDS } from './javascript/constants';
 
 export default function registerTypescriptLanguage(hljs) {
   const tsLanguage = javascript(hljs);
 
   const TYPES = ['any', 'void', 'number', 'boolean', 'string', 'object', 'never', 'symbol', 'bigint', 'unknown'];
+
   const NAMESPACE = {
     begin: [/namespace/, /\s+/, hljs.IDENT_RE],
     beginScope: {
@@ -23,6 +22,7 @@ export default function registerTypescriptLanguage(hljs) {
       3: 'title.class',
     },
   };
+
   const INTERFACE = {
     beginKeywords: 'interface',
     end: /\{/,
@@ -31,16 +31,20 @@ export default function registerTypescriptLanguage(hljs) {
       keyword: 'interface extends',
       built_in: TYPES,
     },
-    contains: [tsLanguage.exports.CLASS_REFERENCE],
+    contains: [],
+    // contains: [tsLanguage.exports.CLASS_REFERENCE],
   };
+
   const USE_STRICT = {
     className: 'meta',
     relevance: 10,
     begin: /^\s*['"]use strict['"]/,
   };
-  const TS_SPECIFIC_KEYWORDS = [
+
+  const TS_KEYWORDS_GROUP2 = [
     'type',
-    // "namespace",
+    'namespace',
+    'declare',
     'interface',
     'public',
     'private',
@@ -60,13 +64,10 @@ export default function registerTypescriptLanguage(hljs) {
   */
 
   const KEYWORDS = {
-    $pattern: IDENT_RE,
-    keyword: JAVASCRIPT_KEYWORDS.concat(TS_SPECIFIC_KEYWORDS),
-    keyword2: tsLanguage.keywords.keyword2.concat(['type', 'declare']),
-    literal: LITERALS,
-    built_in: GLOBAL_FUNCTIONS.concat(GLOBAL_CLASSES, TYPES),
-    'variable.language': GLOBAL_VARIABLES,
+    ...JAVASCRIPT_KEYWORDS,
+    keyword2: JAVASCRIPT_KEYWORDS.keyword2.concat(TS_KEYWORDS_GROUP2),
   };
+
   const DECORATOR = {
     className: 'meta',
     begin: `@${IDENT_RE}`,
@@ -85,23 +86,25 @@ export default function registerTypescriptLanguage(hljs) {
   // it will be the same actual JS object
   Object.assign(tsLanguage.keywords, KEYWORDS);
 
-  tsLanguage.exports.PARAMS_CONTAINS.push(DECORATOR);
+  // tsLanguage.exports.PARAMS_CONTAINS.push(DECORATOR);
 
   // highlight the function params
-  const ATTRIBUTE_HIGHLIGHT = tsLanguage.contains.find((c) => c.className === 'attr');
-  tsLanguage.exports.PARAMS_CONTAINS.push([
-    tsLanguage.exports.CLASS_REFERENCE, // class reference for highlighting the params types
-    ATTRIBUTE_HIGHLIGHT, // highlight the params key
-  ]);
+  // const ATTRIBUTE_HIGHLIGHT = tsLanguage.contains.find((c) => c.className === 'attr');
+  // tsLanguage.exports.PARAMS_CONTAINS.push([
+  //   tsLanguage.exports.CLASS_REFERENCE, // class reference for highlighting the params types
+  //   ATTRIBUTE_HIGHLIGHT, // highlight the params key
+  // ]);
+
   tsLanguage.contains = tsLanguage.contains.concat([DECORATOR, NAMESPACE, INTERFACE]);
 
   // TS gets a simpler shebang rule than JS
   swapMode(tsLanguage, 'shebang', hljs.SHEBANG());
+
   // JS use strict rule purposely excludes `asm` which makes no sense
   swapMode(tsLanguage, 'use_strict', USE_STRICT);
 
-  const functionDeclaration = tsLanguage.contains.find((m) => m.label === 'func.def');
-  functionDeclaration.relevance = 0; // () => {} is more typical in TypeScript
+  // const functionDeclaration = tsLanguage.contains.find((m) => m.label === 'func.def');
+  // functionDeclaration.relevance = 0; // () => {} is more typical in TypeScript
 
   Object.assign(tsLanguage, {
     name: 'TypeScript',

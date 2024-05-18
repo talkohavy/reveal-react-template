@@ -1,6 +1,8 @@
 import PresentationSlides from '../../components/PresentationSlides';
 import { EFFECTS } from '../../components/PresentationSlides/constants';
 import Slide from '../../components/PresentationSlides/Slide';
+import JavaScriptCode from './JavaScriptCode';
+import TypeScriptCode from './TypeScriptCode';
 
 export default function TutorialPage() {
   return (
@@ -394,6 +396,9 @@ let c = planets.reduce( circumferenceReducer, 0 )`}
 \end{aligned} \]`}
         </div>
       </Slide>
+
+      <JavaScriptCode />
+      <TypeScriptCode />
     </PresentationSlides>
   );
 }

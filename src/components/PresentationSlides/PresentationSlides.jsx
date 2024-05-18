@@ -61,8 +61,8 @@ export default function PresentationSlides(props) {
           excapeHTML: true,
           highlightOnLoad: true, // <--- defaults to `true`. When it's set to false, code is not highlighted.
           beforeHighlight: (hljs) => {
-            hljs.registerLanguage('custom-javascript', registerJavascriptLanguage);
-            hljs.registerLanguage('custom-typescript', registerTypescriptLanguage);
+            hljs.registerLanguage('javascript', registerJavascriptLanguage);
+            hljs.registerLanguage('typescript', registerTypescriptLanguage);
           },
         },
         // transitionSpeed: 'slow',
