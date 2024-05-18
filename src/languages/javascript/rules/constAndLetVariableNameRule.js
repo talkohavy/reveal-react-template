@@ -15,10 +15,10 @@ const CONST_AND_LET_VARIABLE_NAME_RULE = {
       end: /(?=.)/,
       scope: 'curly-brace',
     },
+    // Catches "const aaa = 5" as well as "const {a,b,c} = props"
     {
-      scope: 'variable-name',
+      scope: 'title.variable',
       begin: IDENT_RE,
-      relevance: 0,
     },
   ],
 };

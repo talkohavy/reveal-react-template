@@ -41,7 +41,7 @@ VSCode Dark by Tal Kohavy
   color: #569CD6;
 }
 
-.hljs-variable-name {
+.hljs-title.variable_ {
 /* variable names instantiated with const or let */
   color: #4ab9ee;
 }

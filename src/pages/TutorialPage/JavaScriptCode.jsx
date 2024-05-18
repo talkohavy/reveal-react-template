@@ -15,7 +15,7 @@ export default function JavaScriptCode(props) {
         className='r-stretch'
         //  highlightLineNumbers='87-110'
       >
-        {String.raw`'use strict'
+        {`'use strict'
 
 import { useMemo, useEffect } from 'react';
 import { convertReactPropsToRevealProps } from '../utils/convertReactPropsToRevealProps';
@@ -24,9 +24,9 @@ new Person
 
 myArrowFunc((props) => {console.log(props);});
 
-const aaa = ()=> {
-    
-}
+const aaa = () => {};
+const { a } = props;
+const {b,c,d} = props;
 
 while(true){
 
@@ -135,10 +135,6 @@ export default function Slide ( props ) {
   );
 }
 
-
-
-
-
 async function sendMessageFlow(props) {
     const { message } = props;
 
@@ -178,9 +174,9 @@ async function chatQueryRequest(props) {
 
         // NOTE! i'm using chatId here and NOT activeChatId. because until a response arrive, the activeChatId might change.
         if (!chats[chatId]) {
-            // return console.warn(
-            //     \`a response for chat with id of \${chatId} had arrived but chat couldn't be found. user probably deleted the chat before the arrival of the response. ignoring response!\`,
-            // );
+            return console.warn(
+                \`a response for chat with id of \${chatId} had arrived but chat couldn't be found. user probably deleted the chat before the arrival of the response. ignoring response!\`,
+            );
         }
 
         const { chatHistory } = chats[chatId];
@@ -211,9 +207,9 @@ async function chatQueryRequest(props) {
         const chat = store.getState().chatManager.chats[chatId];
 
         if (!chat) {
-            // return console.warn(
-            //     \`a response for chat with id of \${chatId} had arrived but chat couldn't be found. user probably deleted the chat before the arrival of the response. ignoring response!\`,
-            // );
+            return console.warn(
+                \`a response for chat with id of \${chatId} had arrived but chat couldn't be found. user probably deleted the chat before the arrival of the response. ignoring response!\`,
+            );
         }
 
         console.error('Error in sending a query to the server', error);
