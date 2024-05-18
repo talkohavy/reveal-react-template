@@ -12,7 +12,9 @@ function getFunctionCallRule(hljs) {
       /\b/,
       noneOf({
         regex,
-        list: ['super', 'import', 'constructor', 'return'].map((x) => `${x}\\s*\\(`),
+        list: ['super', 'import', 'constructor', 'return', 'if', 'while', 'switch', 'catch', 'function'].map(
+          (x) => `${x}\\s*\\(`,
+        ),
       }),
       LOWERCASED_VARIABLE_RE,
       regex.lookahead(/\s*\(/),
