@@ -59,7 +59,7 @@ VSCode Dark by Tal Kohavy
 
 /* A function's name */
 .hljs-function-name,
-.hljs-title.function_ {
+.hljs-title.function_.call__ {
   color: #DCDCAA;
 }
 

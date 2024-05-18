@@ -12,18 +12,17 @@ const FUNCTION_LIKE_GLOBALS = [
   'switch',
   'catch',
   'function',
-]
-  .map((x) => `${x}\\s*\\(`)
-  .join('|');
+].join('|');
 
 function getFunctionCallRule(hljs) {
   const { regex } = hljs;
 
-  const IGNORE_FUNCTION_LIKE_GLOBALS_RE = `(?!${FUNCTION_LIKE_GLOBALS})`;
+  const IGNORE_FUNCTION_LIKE_GLOBALS_RE = `(?<!${FUNCTION_LIKE_GLOBALS})`;
+  const WITH_OPEN_PARENTHESIS_UP_AHEAD_RE = /(?=\s*\()/;
 
   return {
-    match: regex.concat(/\b/, IGNORE_FUNCTION_LIKE_GLOBALS_RE, LOWERCASED_VARIABLE_RE, regex.lookahead(/\s*\(/)),
-    scope: 'title.function',
+    match: regex.concat(LOWERCASED_VARIABLE_RE, WITH_OPEN_PARENTHESIS_UP_AHEAD_RE, IGNORE_FUNCTION_LIKE_GLOBALS_RE),
+    scope: 'title.function.call',
     relevance: 0,
   };
 }
