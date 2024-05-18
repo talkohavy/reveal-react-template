@@ -17,6 +17,7 @@ import { getCssRule } from './rules/cssRule';
 import { CURLY_BRACES_RULE } from './rules/curlyBracesRule';
 import { getFunctionCallRule } from './rules/functionCallRule';
 import { FUNCTION_NAME_RULE } from './rules/functionNameRule';
+import { FUNCTION_VARIABLE_RULE } from './rules/functionVariableRule';
 import { getGraphQlRule } from './rules/graphQlRule';
 import { getHtmlRule } from './rules/htmlRule';
 import { NUMBER_RULE } from './rules/numberRule';
@@ -63,6 +64,7 @@ export default function registerJavascriptLanguage(hljs) {
       }),
       USE_STRICT_RULE,
       FUNCTION_NAME_RULE,
+      FUNCTION_VARIABLE_RULE,
       CONST_AND_LET_VARIABLE_NAME_RULE,
       VAR_VARIABLE_NAME_RULE,
       CURLY_BRACES_RULE,

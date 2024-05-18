@@ -25,12 +25,16 @@ new Person
 myArrowFunc((props) => {console.log(props);});
 
 const aaa0 = (()=>{});
-const aaa0 = (()=>{})();
-const aaa1 = () => {};
-const aaa2 = async () => {};
-const aaa3 = async (a,b) => {};
-const aaa4 = function () {};
-const aaa5 = function (a,b) => {};
+const aaa1 = ((a)=>{});
+const aaa2 = (()=>{})(); // <--- mistake!
+const aaa3 = ((a)=>{})(); // <--- mistake!
+const aaa4 = () => {};
+const aaa5 = (a) => {};
+const aaa6 = async () => {};
+const aaa7 = async (a,b) => {};
+const aaa8 = function () {};
+const aaa9 = function (a,b) {};
+const aaa10 = function greg (a,b) {};
 
 const { a } = props;
 const {b,c,d} = props;
