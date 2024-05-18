@@ -40,6 +40,14 @@ try {
 
 const UPPER_CASE_CONST = 300;
 
+/*
+ * this is a block comment
+ */
+
+/**
+ * this is a JSDOC (shocking...)
+ */
+
 // TODO: need to fix this arrow function...
 const myArrowFunc = (aaa) => { return void Promise.resolve(5); }
 const myArrowFunc2 = async (aaa) => Promise.resolve(5)
