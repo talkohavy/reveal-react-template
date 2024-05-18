@@ -1,7 +1,10 @@
 import Code from '../../components/PresentationSlides/Code';
 import Slide from '../../components/PresentationSlides/Slide';
 
-export default function JavaScriptCode() {
+/**
+ * @param {{name: string}} props
+ */
+export default function JavaScriptCode(props) {
   return (
     <Slide>
       <h3>JavaScript Code</h3>
@@ -9,7 +12,7 @@ export default function JavaScriptCode() {
       <Code
         language='javascript'
         className='r-stretch'
-        //  highlightLineNumbers='93-105'
+        //  highlightLineNumbers='87-110'
       >
         {String.raw`'use strict'
 
@@ -64,6 +67,7 @@ const person = new Person('tal');
 JSON.stringify(person);
 
 /**
+ * @params {{name: string}} props
  * @description
  * This component is about something 
  */
@@ -98,7 +102,17 @@ export default function Slide ( props ) {
 
   return (
     <Slide>
-      <Component text="hello kitty">
+      <Component text="hello kitty" onClick={() => { const p = new Person() }}>
+        <img src='hello.jpg' alt="chicken" />
+      </Component>
+
+      <h1 />
+
+      <h2>title</h2>
+      
+      <img src='hello.jpg' alt="chicken" />
+
+      <Component text="hello kitty" onClick={() => { const p = new Person() }}>
         <img src='hello.jpg' alt="chicken" />
       </Component>
 
