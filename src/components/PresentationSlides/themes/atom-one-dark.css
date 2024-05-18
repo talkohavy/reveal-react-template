@@ -70,7 +70,7 @@ VSCode Dark by Tal Kohavy
 
 /* A Jsx Component: */
 .hljs-name{
-  color: #4DC9B0
+  color: #40b9a1
 }
 
 .hljs-section,
@@ -107,7 +107,6 @@ VSCode Dark by Tal Kohavy
 .hljs-selector-class,
 .hljs-selector-attr,
 .hljs-selector-pseudo {
-  /* color: #d19a66; */
   color: #9CDCFE;
 }
 
@@ -119,10 +118,11 @@ VSCode Dark by Tal Kohavy
   color: #61aeee;
 }
 
-
+/* .hljs-class        = new Person(); */
 /* .hljs-title.class_ = Typescript - a type's name */
-/* .hljs-built_in = Typescript's type (i.e. const aaa: SomeType) */
+/* .hljs-built_in     = Typescript's type (i.e. const aaa: SomeType) */
 .hljs-built_in,
+.hljs-class,
 .hljs-title.class_,
 .hljs-class .hljs-title {
   color: #4DC9B0;

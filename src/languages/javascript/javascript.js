@@ -10,6 +10,7 @@ import { FRAGMENT, IDENT_RE, KEYWORDS } from './constants';
 import { ARRAY_BRACKET_RULE } from './rules/arrayBracketsRule';
 import { ARROW_RULE } from './rules/arrowRule';
 import { getClassAndExtendsRule } from './rules/classAndExtendsRules';
+import { CLASS_CALL_RULE } from './rules/classCallRule';
 import { getCommentRule } from './rules/commentRule';
 import { CONST_AND_LET_VARIABLE_NAME_RULE } from './rules/constAndLetVariableNameRule';
 import { getCssRule } from './rules/cssRule';
@@ -59,6 +60,7 @@ export default function registerJavascriptLanguage(hljs) {
         binary: 'node',
         relevance: 5,
       }),
+      CLASS_CALL_RULE,
       FUNCTION_NAME_RULE,
       USE_STRICT_RULE,
       CONST_AND_LET_VARIABLE_NAME_RULE,
@@ -79,11 +81,6 @@ export default function registerJavascriptLanguage(hljs) {
         begin: IDENT_RE + regex.lookahead(':'),
         relevance: 0,
       },
-      // {
-      //   // prevent this from getting swallowed up by function
-      //   // since they appear "function like"
-      //   beginKeywords: 'while if switch catch for',
-      // },
       // catch ... so it won't trigger the property rule below
       {
         match: /\.\.\./,
@@ -115,7 +112,6 @@ export default function registerJavascriptLanguage(hljs) {
             end: XML_TAG_RULES.end,
             skip: true,
             contains: ['self'],
-            className: 'fuck',
           },
         ],
       },
