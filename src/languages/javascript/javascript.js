@@ -49,6 +49,7 @@ export default function registerJavascriptLanguage(hljs) {
 
   return {
     name: 'JavaScript',
+    case_insensitive: false, // <--- JavaScript language is case-sensitive! defaults to `false`.
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
     keywords: KEYWORDS,
     // this will be extended by TypeScript
