@@ -9,7 +9,7 @@ import registerTypescriptLanguage from '../../languages/typescript';
 
 import 'reveal.js/dist/reveal.css';
 import 'reveal.js/dist/theme/black.css';
-import './themes/atom-one-dark.css';
+import './themes/vscode-dark.css';
 
 // import './themes/monokai.css';
 // import './themes/1c-light.css';

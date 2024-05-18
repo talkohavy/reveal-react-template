@@ -68,9 +68,19 @@ VSCode Dark by Tal Kohavy
   color: #569CD6;
 }
 
-/* A Jsx Component: */
+/* 
+.hljs-react-component        = A Jsx Component
+.hljs-type                   = I.E. @param {{name: string}} props
+*/
+.hljs-react-component,
+.hljs-type,
 .hljs-name{
-  color: #40b9a1
+  color: #40b9a1;
+}
+
+/* An html element: */
+.hljs-html{
+  color: #569CD6;
 }
 
 .hljs-section,
@@ -103,7 +113,6 @@ VSCode Dark by Tal Kohavy
 .hljs-attr,
 .hljs-variable,
 .hljs-template-variable,
-.hljs-type,
 .hljs-selector-class,
 .hljs-selector-attr,
 .hljs-selector-pseudo {
