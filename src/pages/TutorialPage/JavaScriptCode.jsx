@@ -8,6 +8,7 @@ export default function JavaScriptCode() {
 
       <Code
         language='javascript'
+        className='r-stretch'
         //  highlightLineNumbers='93-105'
       >
         {String.raw`'use strict'
@@ -32,10 +33,6 @@ try {
 }catch(error){
 
 }
-
-/**
- * @typedef {{name: string, age: number}} Person
- */
 
 const UPPER_CASE_CONST = 300;
 
