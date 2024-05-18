@@ -24,7 +24,14 @@ new Person
 
 myArrowFunc((props) => {console.log(props);});
 
-const aaa = () => {};
+const aaa0 = (()=>{});
+const aaa0 = (()=>{})();
+const aaa1 = () => {};
+const aaa2 = async () => {};
+const aaa3 = async (a,b) => {};
+const aaa4 = function () {};
+const aaa5 = function (a,b) => {};
+
 const { a } = props;
 const {b,c,d} = props;
 
