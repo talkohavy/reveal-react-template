@@ -21,7 +21,13 @@ function getFunctionCallRule(hljs) {
   const WITH_OPEN_PARENTHESIS_UP_AHEAD_RE = /(?=\s*\()/;
 
   return {
-    match: regex.concat(LOWERCASED_VARIABLE_RE, WITH_OPEN_PARENTHESIS_UP_AHEAD_RE, IGNORE_FUNCTION_LIKE_GLOBALS_RE),
+    match: regex.concat(
+      /(?<!function\s+)/,
+      /\b/,
+      LOWERCASED_VARIABLE_RE,
+      WITH_OPEN_PARENTHESIS_UP_AHEAD_RE,
+      IGNORE_FUNCTION_LIKE_GLOBALS_RE,
+    ),
     scope: 'title.function.call',
     relevance: 0,
   };
