@@ -36,7 +36,7 @@ export default function registerTypescriptLanguage(hljs) {
   };
 
   const USE_STRICT = {
-    className: 'meta',
+    scope: 'meta',
     relevance: 10,
     begin: /^\s*['"]use strict['"]/,
   };
@@ -69,7 +69,7 @@ export default function registerTypescriptLanguage(hljs) {
   };
 
   const DECORATOR = {
-    className: 'meta',
+    scope: 'meta',
     begin: `@${IDENT_RE}`,
   };
 

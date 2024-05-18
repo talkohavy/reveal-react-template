@@ -1,5 +1,5 @@
 const CURLY_BRACES_RULE = {
-  className: 'curly-brace',
+  scope: 'curly-brace',
   begin: /[{}]/,
 };
 

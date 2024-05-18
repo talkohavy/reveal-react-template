@@ -23,7 +23,7 @@ function getFunctionCallRule(hljs) {
 
   return {
     match: regex.concat(/\b/, IGNORE_FUNCTION_LIKE_GLOBALS_RE, LOWERCASED_VARIABLE_RE, regex.lookahead(/\s*\(/)),
-    className: 'title.function',
+    scope: 'title.function',
     relevance: 0,
   };
 }

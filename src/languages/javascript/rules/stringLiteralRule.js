@@ -2,7 +2,7 @@ import { SUBST } from '../constants';
 
 function getStringLiteralRule(hljs) {
   return {
-    className: 'string',
+    scope: 'string',
     begin: '`',
     end: '`',
     contains: [hljs.BACKSLASH_ESCAPE, SUBST],

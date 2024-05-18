@@ -1,7 +1,7 @@
 import { decimalDigits, decimalInteger, fraction } from '../constants';
 
 const NUMBER_RULE = {
-  className: 'number',
+  scope: 'number',
   variants: [
     // DecimalLiteral
     {

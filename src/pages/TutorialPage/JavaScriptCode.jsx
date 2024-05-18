@@ -4,6 +4,7 @@ import Slide from '../../components/PresentationSlides/Slide';
 /**
  * @param {{name: string}} props
  */
+// eslint-disable-next-line
 export default function JavaScriptCode(props) {
   return (
     <Slide>

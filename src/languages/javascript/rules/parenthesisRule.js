@@ -1,5 +1,5 @@
 const PARENTHESIS_RULE = {
-  className: 'parenthesis',
+  scope: 'parenthesis',
   begin: /[()]/,
 };
 

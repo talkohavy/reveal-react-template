@@ -8,15 +8,15 @@ const CONST_AND_LET_VARIABLE_NAME_RULE = {
     {
       begin: /\{/,
       end: /(?=.)/,
-      className: 'curly-brace',
+      scope: 'curly-brace',
     },
     {
       begin: /\}/,
       end: /(?=.)/,
-      className: 'curly-brace',
+      scope: 'curly-brace',
     },
     {
-      className: 'variable-name',
+      scope: 'variable-name',
       begin: IDENT_RE,
       relevance: 0,
     },

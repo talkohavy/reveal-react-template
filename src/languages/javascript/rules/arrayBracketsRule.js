@@ -1,5 +1,5 @@
 const ARRAY_BRACKET_RULE = {
-  className: 'array-bracket',
+  scope: 'array-bracket',
   begin: /[[\]]/,
 };
 

@@ -9,15 +9,15 @@ function getCommentRule(hljs) {
         relevance: 0,
         contains: [
           {
-            className: 'doctag',
+            scope: 'doctag',
             begin: '@[A-Za-z]+',
           },
           {
-            className: 'curly-brace',
+            scope: 'curly-brace',
             begin: '[{}]+',
           },
           {
-            className: 'type',
+            scope: 'type',
             begin: '(?<={+)',
             end: '(?=}+)',
             excludeEnd: true,
@@ -25,7 +25,7 @@ function getCommentRule(hljs) {
             relevance: 0,
           },
           {
-            className: 'variable',
+            scope: 'variable',
             begin: `${IDENT_RE}(?=\\s*(-)|$)`,
             endsParent: true,
             relevance: 0,
@@ -42,7 +42,7 @@ function getCommentRule(hljs) {
   });
 
   return {
-    className: 'comment',
+    scope: 'comment',
     variants: [JSDOC_COMMENT, hljs.C_BLOCK_COMMENT_MODE, hljs.C_LINE_COMMENT_MODE],
   };
 }

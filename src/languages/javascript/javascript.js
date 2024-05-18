@@ -43,7 +43,7 @@ export default function registerJavascriptLanguage(hljs) {
     end: IDENT_RE,
     excludeBegin: true,
     keywords: 'prototype',
-    className: 'property',
+    scope: 'property',
     relevance: 0,
   };
 
@@ -105,7 +105,7 @@ export default function registerJavascriptLanguage(hljs) {
       GRAPHQL_TEMPLATE_RULE,
       TEMPLATE_STRING,
       {
-        className: 'attr',
+        scope: 'attr',
         begin: IDENT_RE + regex.lookahead(':'),
         relevance: 0,
       },
@@ -123,7 +123,7 @@ export default function registerJavascriptLanguage(hljs) {
       // {
       //   relevance: 0,
       //   match: /\b[A-Z][A-Z_0-9]+\b/,
-      //   className: 'variable.constant',
+      //   scope: 'variable.constant',
       // },
     ],
   };

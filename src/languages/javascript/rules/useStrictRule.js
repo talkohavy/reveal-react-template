@@ -1,6 +1,6 @@
 const USE_STRICT_RULE = {
   label: 'use_strict',
-  className: 'meta',
+  scope: 'meta',
   relevance: 10,
   begin: /^\s*['"]use (strict|asm)['"]/,
 };

@@ -1,5 +1,5 @@
 const CLASS_CALL_RULE = {
-  className: 'class',
+  scope: 'class',
   begin: /(?<=new\s+)[A-Z][a-zA-Z0-9_]*/,
 };
 

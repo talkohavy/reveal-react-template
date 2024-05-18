@@ -23,7 +23,7 @@ const KEYWORDS = {
 };
 
 const SUBST = {
-  className: 'subst',
+  scope: 'subst',
   begin: '\\$\\{',
   end: '\\}',
   keywords: KEYWORDS,

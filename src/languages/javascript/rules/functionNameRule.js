@@ -1,5 +1,5 @@
 const FUNCTION_NAME_RULE = {
-  className: 'function-name',
+  scope: 'function-name',
   begin: /(?<=function\s+)[A-Za-z$_][0-9A-Za-z$_]*/,
 };
 

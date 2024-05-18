@@ -1,5 +1,5 @@
 const ARROW_RULE = {
-  className: 'arrow',
+  scope: 'arrow',
   begin: /=>/,
 };
 
