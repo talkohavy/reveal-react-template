@@ -13,9 +13,13 @@ function getCommentRule(hljs) {
             begin: '@[A-Za-z]+',
           },
           {
+            className: 'curly-brace',
+            begin: '[{}]+',
+          },
+          {
             className: 'type',
-            begin: '\\{',
-            end: '\\}',
+            begin: '(?<={+)',
+            end: '(?=}+)',
             excludeEnd: true,
             excludeBegin: true,
             relevance: 0,
