@@ -43,7 +43,17 @@ function getCommentRule(hljs) {
 
   return {
     scope: 'comment',
-    variants: [JSDOC_COMMENT, hljs.C_BLOCK_COMMENT_MODE, hljs.C_LINE_COMMENT_MODE],
+    /**
+     * Variant 1: C_LINE_COMMENT_MODE
+     * - This is for comments starting with 2 forward slashes.
+     *
+     * Variant 2: C_BLOCK_COMMENT_MODE
+     * - This is for comments starting like /* *\/.
+     *
+     * Variant 3: JSDOC_COMMENT
+     * - This is for comments starting like /** *\/.
+     */
+    variants: [hljs.C_LINE_COMMENT_MODE, hljs.C_BLOCK_COMMENT_MODE, JSDOC_COMMENT],
   };
 }
 
