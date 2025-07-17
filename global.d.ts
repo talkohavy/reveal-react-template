@@ -5,5 +5,10 @@ declare module '*.svg' {
 
 // added this so that import.meta.env won't error and say: "Property 'env' does not exist on type 'ImportMeta'""
 interface ImportMeta {
-  readonly env: ImportMetaEnv;
+  readonly env: any;
+}
+
+declare module 'vite-plugin-svgr' {
+  function svgr(options?: any): any;
+  export default svgr;
 }

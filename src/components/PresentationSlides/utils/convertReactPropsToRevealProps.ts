@@ -1,14 +1,11 @@
-/**
- * @typedef {import('../types').SlideConfig} SlideConfig
- */
+import type { SlideConfig } from '../types';
 
-/** @param {SlideConfig} slideConfig */
-function convertReactPropsToRevealProps(slideConfig) {
+function convertReactPropsToRevealProps(slideConfig: SlideConfig) {
   if (!slideConfig) return {};
 
   let className = '';
-  slideConfig.rStack && (className += 'r-stack ');
-  slideConfig.rStretch && (className += 'r-stretch ');
+  if (slideConfig.rStack) className += 'r-stack ';
+  if (slideConfig.rStretch) className += 'r-stretch ';
 
   const revealProps = {
     'data-transition': slideConfig.dataTransition,
