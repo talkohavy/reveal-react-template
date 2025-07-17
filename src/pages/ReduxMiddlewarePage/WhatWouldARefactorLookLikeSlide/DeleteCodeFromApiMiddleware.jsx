@@ -1,4 +1,4 @@
-import Code from '../../../components/PresentationSlides/Code';
+import Code from '../../../components/PresentationSlides/CodeBlock';
 import SideNotes from '../../../components/PresentationSlides/SideNote';
 import Slide from '../../../components/PresentationSlides/Slide';
 

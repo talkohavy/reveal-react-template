@@ -1,4 +1,4 @@
-import Code from '../../components/PresentationSlides/Code';
+import Code from '../../components/PresentationSlides/CodeBlock';
 import Slide from '../../components/PresentationSlides/Slide';
 
 export default function TypeScriptCode() {
