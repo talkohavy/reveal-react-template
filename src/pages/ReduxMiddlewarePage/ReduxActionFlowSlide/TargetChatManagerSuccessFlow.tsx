@@ -1,8 +1,8 @@
 import clsx from 'clsx';
+import { ANIMATION_CLASSES } from '../../../common/constants';
 import ObjectWrapper from '../../../components/Positioner';
 import Slide from '../../../components/Slide';
 import FixedFrame from './FixedFrame';
-import { ANIMATION_CLASSES } from '../../../common/constants';
 
 export default function TargetChatManagerSuccessFlow() {
   return (

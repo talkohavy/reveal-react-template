@@ -1,8 +1,8 @@
 import clsx from 'clsx';
+import { ANIMATION_CLASSES, EFFECTS } from '../../../common/constants';
 import ObjectWrapper from '../../../components/Positioner';
 import Slide from '../../../components/Slide';
 import FixedFrame from '../ReduxActionFlowSlide/FixedFrame';
-import { ANIMATION_CLASSES, EFFECTS } from '../../../common/constants';
 
 export default function FlowTestingSlide() {
   return (

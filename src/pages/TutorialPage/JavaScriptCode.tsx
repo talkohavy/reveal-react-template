@@ -1,11 +1,7 @@
 import Code from '../../components/CodeBlock';
 import Slide from '../../components/Slide';
 
-/**
- * @param {{name: string}} props
- */
-// eslint-disable-next-line
-export default function JavaScriptCode(_props) {
+export default function JavaScriptCode() {
   return (
     <Slide>
       <h3>JavaScript Code</h3>
