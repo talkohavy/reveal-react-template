@@ -1,4 +1,4 @@
-const GLOBAL_VARIABLES = [
+export const GLOBAL_VARIABLES = [
   'window',
   'document',
   'localStorage',
@@ -10,5 +10,3 @@ const GLOBAL_VARIABLES = [
   'module',
   'global', // Node.js
 ];
-
-export { GLOBAL_VARIABLES };

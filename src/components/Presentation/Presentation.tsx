@@ -4,8 +4,8 @@ import RevealHighlight from 'reveal.js/plugin/highlight/highlight.js';
 import RevealMarkdown from 'reveal.js/plugin/markdown/markdown.js';
 import RevealMath from 'reveal.js/plugin/math/math.js';
 import RevealNotes from 'reveal.js/plugin/notes/notes.js';
-import registerJavascriptLanguage from '../../languages/javascript';
-import registerTypescriptLanguage from '../../languages/typescript';
+import registerJavascriptLanguage from '../../common/utils/languages/javascript';
+import registerTypescriptLanguage from '../../common/utils/languages/typescript';
 
 type PresentationProps = PropsWithChildren<any>;
 
