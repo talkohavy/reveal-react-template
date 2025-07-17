@@ -1,5 +1,5 @@
-import ObjectWrapper from '../../../components/PresentationSlides/ObjectWrapper';
-import SideNotes from '../../../components/PresentationSlides/SideNotes';
+import ObjectWrapper from '../../../components/PresentationSlides/Positioner';
+import SideNotes from '../../../components/PresentationSlides/SideNote';
 import Slide from '../../../components/PresentationSlides/Slide';
 
 export default function DecoupleRequestAndResponseSlide() {

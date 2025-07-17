@@ -1,4 +1,4 @@
-import SideNotes from '../../../components/PresentationSlides/SideNotes';
+import SideNotes from '../../../components/PresentationSlides/SideNote';
 import Slide from '../../../components/PresentationSlides/Slide';
 import image from './fisherman.png';
 import styles from './OpeningSlide.module.css';

@@ -1,4 +1,4 @@
-import ObjectWrapper from '../../../components/PresentationSlides/ObjectWrapper';
+import ObjectWrapper from '../../../components/PresentationSlides/Positioner';
 import Slide from '../../../components/PresentationSlides/Slide';
 import FixedFrame from './FixedFrame';
 

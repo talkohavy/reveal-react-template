@@ -1,5 +1,5 @@
 import Code from '../../../components/PresentationSlides/Code';
-import SideNotes from '../../../components/PresentationSlides/SideNotes';
+import SideNotes from '../../../components/PresentationSlides/SideNote';
 import Slide from '../../../components/PresentationSlides/Slide';
 
 export default function DeleteCodeFromChatManagerMiddleware() {
@@ -7,7 +7,7 @@ export default function DeleteCodeFromChatManagerMiddleware() {
     <Slide>
       <h3>What would a refactor look like?</h3>
 
-      <p className='text-left text-sm' style={{ marginLeft: 49 }}>
+      <p className='text-left' style={{ marginLeft: 49 }}>
         <i>filename: chatManager/middleware.ts</i>
       </p>
 

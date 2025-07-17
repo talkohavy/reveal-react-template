@@ -1,4 +1,4 @@
-import SideNotes from '../../../components/PresentationSlides/SideNotes';
+import SideNotes from '../../../components/PresentationSlides/SideNote';
 import Slide from '../../../components/PresentationSlides/Slide';
 
 export default function RefactorProsAndConsSlide() {

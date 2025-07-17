@@ -27,8 +27,8 @@ import { USE_STRICT_RULE } from './rules/useStrictRule';
 import { VAR_VARIABLE_NAME_RULE } from './rules/varVariableNameRule';
 import { getXmlTagRules } from './rules/xmlTags';
 
-export default function registerJavascriptLanguage(hljs) {
-  const { regex } = hljs;
+export default function registerJavascriptLanguage(hljs: any) {
+  const { regex, SHEBANG, APOS_STRING_MODE, QUOTE_STRING_MODE } = hljs;
 
   const XML_TAG_RULES = getXmlTagRules();
   const HTML_TEMPLATE_RULE = getHtmlRule(hljs);
@@ -57,7 +57,7 @@ export default function registerJavascriptLanguage(hljs) {
     exports: {},
     illegal: /#(?![$_A-z])/,
     contains: [
-      hljs.SHEBANG({
+      SHEBANG({
         label: 'shebang',
         binary: 'node',
         relevance: 5,
@@ -71,8 +71,8 @@ export default function registerJavascriptLanguage(hljs) {
       PARENTHESIS_RULE,
       ARRAY_BRACKET_RULE,
       CLASS_CALL_RULE,
-      hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE,
+      APOS_STRING_MODE,
+      QUOTE_STRING_MODE,
       HTML_TEMPLATE_RULE,
       CSS_TEMPLATE_RULE,
       COMMENT_RULE,

@@ -1,17 +1,13 @@
-import { useMemo } from 'react';
-import { convertReactPropsToRevealProps } from '../utils/convertReactPropsToRevealProps';
+import { type PropsWithChildren, useMemo } from 'react';
+import type { SlideConfig } from '../types';
+import { convertReactPropsToRevealProps } from '../../../common/utils/convertReactPropsToRevealProps';
 
-/**
- * @typedef {import('../types').SlideConfig} SlideConfig
- */
+type SlideProps = PropsWithChildren<{
+  slideConfig?: SlideConfig;
+  className?: string;
+}>;
 
-/**
- * @param {import('react').PropsWithChildren<{
- *   slideConfig?: SlideConfig,
- *   className?: string
- * }>} props
- */
-export default function Slide(props) {
+export default function Slide(props: SlideProps) {
   const { children, slideConfig, className, ...rawRestProps } = props;
 
   const revealProps = useMemo(() => convertReactPropsToRevealProps(slideConfig), [slideConfig]);

@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { ANIMATION_CLASSES, EFFECTS } from '../../../components/PresentationSlides/constants';
-import ObjectWrapper from '../../../components/PresentationSlides/ObjectWrapper';
+import ObjectWrapper from '../../../components/PresentationSlides/Positioner';
 import Slide from '../../../components/PresentationSlides/Slide';
 import FixedFrame from '../ReduxActionFlowSlide/FixedFrame';
+import { ANIMATION_CLASSES, EFFECTS } from '../../../common/constants';
 
 export default function FlowTestingSlide() {
   return (
@@ -30,7 +30,7 @@ export default function FlowTestingSlide() {
             data-id='api-mock'
             data-auto-animate
             data-transition={EFFECTS.fade}
-            className='relative left-56 flex size-28 items-center justify-center border bg-black text-sm'
+            className='relative left-56 flex size-28 items-center justify-center border bg-black'
           >
             API Mock
           </div>
@@ -57,7 +57,7 @@ export default function FlowTestingSlide() {
             data-id='api-mock'
             data-auto-animate
             data-transition={EFFECTS.fade}
-            className='relative left-56 flex size-28 items-center justify-center border bg-black text-sm'
+            className='relative left-56 flex size-28 items-center justify-center border bg-black'
           >
             API Mock
           </div>
@@ -92,7 +92,7 @@ export default function FlowTestingSlide() {
             data-id='api-mock'
             data-auto-animate
             data-transition={EFFECTS.fade}
-            className='relative left-56 flex size-28 items-center justify-center border bg-black text-sm'
+            className='relative left-56 flex size-28 items-center justify-center border bg-black'
           >
             API Mock
           </div>
@@ -150,7 +150,7 @@ export default function FlowTestingSlide() {
             data-id='api-mock'
             data-auto-animate
             data-transition={EFFECTS.fade}
-            className='relative left-56 flex size-28 items-center justify-center border bg-black text-sm'
+            className='relative left-56 flex size-28 items-center justify-center border bg-black'
           >
             API Mock
           </div>
@@ -189,7 +189,7 @@ export default function FlowTestingSlide() {
             data-id='api-mock'
             data-auto-animate
             data-transition={EFFECTS.fade}
-            className='relative left-56 flex size-28 items-center justify-center border bg-black text-sm'
+            className='relative left-56 flex size-28 items-center justify-center border bg-black'
           >
             API Mock
           </div>
@@ -228,7 +228,7 @@ export default function FlowTestingSlide() {
             data-id='api-mock'
             data-auto-animate
             data-transition={EFFECTS.fade}
-            className='relative left-56 flex size-28 items-center justify-center border bg-black text-sm'
+            className='relative left-56 flex size-28 items-center justify-center border bg-black'
           >
             API Mock
           </div>
@@ -267,7 +267,7 @@ export default function FlowTestingSlide() {
             data-id='api-mock'
             data-auto-animate
             data-transition={EFFECTS.fade}
-            className='relative left-56 flex size-28 items-center justify-center border bg-black text-sm'
+            className='relative left-56 flex size-28 items-center justify-center border bg-black'
           >
             API Mock
           </div>
@@ -306,7 +306,7 @@ export default function FlowTestingSlide() {
             data-id='api-mock'
             data-auto-animate
             data-transition={EFFECTS.fade}
-            className='relative left-56 flex size-28 items-center justify-center border bg-black text-sm'
+            className='relative left-56 flex size-28 items-center justify-center border bg-black'
           >
             API Mock
           </div>

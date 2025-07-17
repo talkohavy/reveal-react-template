@@ -1,5 +1,6 @@
-import ObjectWrapper from '../../../components/PresentationSlides/ObjectWrapper';
-import SideNotes from '../../../components/PresentationSlides/SideNotes';
+import type { PropsWithChildren } from 'react';
+import ObjectWrapper from '../../../components/PresentationSlides/Positioner';
+import SideNotes from '../../../components/PresentationSlides/SideNote';
 import Slide from '../../../components/PresentationSlides/Slide';
 
 const SIDE_NOTES_RENDERER = {
@@ -53,7 +54,11 @@ const SIDE_NOTES_RENDERER = {
   ),
 };
 
-export default function FixedFrame(props) {
+type FixedFrameProps = PropsWithChildren<{
+  actionType: string;
+}>;
+
+export default function FixedFrame(props: FixedFrameProps) {
   const { actionType = '', children } = props;
 
   return (
@@ -90,11 +95,11 @@ export default function FixedFrame(props) {
             // style={{ marginBottom: 0, marginLeft: 0 }}
           >
             <div className='h-0.5 w-28 bg-white' />
-            <div className='flex size-28 items-center justify-center border bg-orange-400 text-sm'>UI</div>
+            <div className='flex size-28 items-center justify-center border bg-orange-400'>UI</div>
             <div className='h-0.5 w-28 bg-white' />
-            <div className='flex size-28 items-center justify-center border bg-blue-500 text-sm'>Chat Manager</div>
+            <div className='flex size-28 items-center justify-center border bg-blue-500'>Chat Manager</div>
             <div className='h-0.5 w-28 bg-white' />
-            <div className='flex size-28 items-center justify-center border bg-teal-400 text-sm'>API</div>
+            <div className='flex size-28 items-center justify-center border bg-teal-400'>API</div>
             <div className='h-0.5 w-28 bg-white' />
           </div>
         </ObjectWrapper>

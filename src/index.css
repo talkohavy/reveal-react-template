@@ -38,8 +38,9 @@
   opacity: 0.5;
 }
 
-code, code span { 
-  font-family: 'Consolas', 'Courier New', Courier, monospace !important
+code,
+code span {
+  font-family: 'Consolas', 'Courier New', Courier, monospace !important;
 }
 
 @layer base {
@@ -56,7 +57,6 @@ code, code span {
     @apply justify-center;
     @apply w-full;
     @apply h-full;
-    @apply text-sm;
     overflow: hidden;
   }
 
@@ -95,29 +95,52 @@ code, code span {
 /* @layer components {} */
 
 @layer utilities {
-  .reveal{}
-  .slides{}
-  .notes{}
-  .fragment{}
-  .current-visible{}
-  .fade-in{}
-  .fade-out{}
-  .semi-fade-out{}
-  .fade-up{}
-  .fade-down{}
-  .fade-left{}
-  .fade-right{}
-  .grow{}
-  .shrink{}
-  .r-fit-text{}
-  .r-stretch{}
-  .r-stack{}
-  .highlight-red{}
-  .highlight-current-red{}
-  .highlight-green{}
-  .highlight-blue{}
-  .fade-in-then-out{}
-  .fade-in-then-semi-out{}
+  .reveal {
+  }
+  .slides {
+  }
+  .notes {
+  }
+  .fragment {
+  }
+  .current-visible {
+  }
+  .fade-in {
+  }
+  .fade-out {
+  }
+  .semi-fade-out {
+  }
+  .fade-up {
+  }
+  .fade-down {
+  }
+  .fade-left {
+  }
+  .fade-right {
+  }
+  .grow {
+  }
+  .shrink {
+  }
+  .r-fit-text {
+  }
+  .r-stretch {
+  }
+  .r-stack {
+  }
+  .highlight-red {
+  }
+  .highlight-current-red {
+  }
+  .highlight-green {
+  }
+  .highlight-blue {
+  }
+  .fade-in-then-out {
+  }
+  .fade-in-then-semi-out {
+  }
 
   .no-scrollbar {
     /* IE and Edge */

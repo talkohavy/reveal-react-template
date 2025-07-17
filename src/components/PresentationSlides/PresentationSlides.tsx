@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import Reveal from 'reveal.js';
+import { type PropsWithChildren, useEffect, useRef } from 'react';
+import Reveal, { type Api } from 'reveal.js';
 import RevealHighlight from 'reveal.js/plugin/highlight/highlight.js';
 import RevealMarkdown from 'reveal.js/plugin/markdown/markdown.js';
 import RevealMath from 'reveal.js/plugin/math/math.js';
@@ -9,7 +9,7 @@ import registerTypescriptLanguage from '../../languages/typescript';
 
 import 'reveal.js/dist/reveal.css';
 import 'reveal.js/dist/theme/black.css';
-import './themes/vscode-dark.css';
+import '../../common/styles/themes/vscode-dark.css';
 
 // import './themes/monokai.css';
 // import './themes/1c-light.css';
@@ -23,11 +23,13 @@ import './themes/vscode-dark.css';
 // import './themes/github-dark.css';
 // import './themes/github-light.css';
 
-export default function PresentationSlides(props) {
+type PresentationSlidesProps = PropsWithChildren<any>;
+
+export default function PresentationSlides(props: PresentationSlidesProps) {
   const { children } = props;
 
-  const deckDivRef = useRef(null); // reference to deck container div
-  const deckRef = useRef(null); // reference to deck reveal instance
+  const deckDivRef = useRef<HTMLElement>({} as HTMLElement); // reference to deck container div
+  const deckRef = useRef<Api>(null); // reference to deck reveal instance
 
   useEffect(() => {
     // Prevents double initialization in strict mode
@@ -96,7 +98,7 @@ export default function PresentationSlides(props) {
   return (
     // Your presentation is sized based on the width and height of
     // our parent element. Make sure the parent is not 0-height.
-    <div className='reveal' ref={deckDivRef}>
+    <div className='reveal' ref={deckDivRef as any}>
       <div className='slides'>{children}</div>
     </div>
   );

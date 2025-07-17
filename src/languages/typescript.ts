@@ -10,7 +10,7 @@ Category: common, scripting
 import javascript from './javascript';
 import { IDENT_RE, KEYWORDS as JAVASCRIPT_KEYWORDS } from './javascript/constants';
 
-export default function registerTypescriptLanguage(hljs) {
+export default function registerTypescriptLanguage(hljs: any) {
   const tsLanguage = javascript(hljs);
 
   const TYPES = ['any', 'void', 'number', 'boolean', 'string', 'object', 'never', 'symbol', 'bigint', 'unknown'];
@@ -73,8 +73,8 @@ export default function registerTypescriptLanguage(hljs) {
     begin: `@${IDENT_RE}`,
   };
 
-  const swapMode = (mode, label, replacement) => {
-    const indx = mode.contains.findIndex((m) => m.label === label);
+  const swapMode = (mode: any, label: string, replacement: any) => {
+    const indx = mode.contains.findIndex((m: any) => m.label === label);
     if (indx === -1) {
       throw new Error('can not find mode to replace');
     }

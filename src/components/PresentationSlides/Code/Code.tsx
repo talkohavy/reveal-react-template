@@ -1,11 +1,36 @@
-/**
- * @typedef {import('./CodeBlock').CodeBlockProps} CodeBlockProps
- */
+import type { PropsWithChildren } from 'react';
 
-/**
- * @param {import('react').PropsWithChildren<CodeBlockProps>} props
- */
-export default function Code(props) {
+type CodeBlockProps = PropsWithChildren<{
+  highlightLineNumbers?: boolean | string;
+  startFromLineNumber?: number;
+  /**
+   * @default auto-detect
+   */
+  language?:
+    | 'javascript'
+    | 'typescript'
+    | 'html'
+    | 'yaml'
+    | 'sql'
+    | 'css'
+    | 'scss'
+    | 'json'
+    | 'markdown'
+    | 'dockerfile'
+    | 'python'
+    | 'go'
+    | 'java'
+    | 'php'
+    | 'matlab'
+    | 'r'
+    | 'dart'
+    | 'curl'
+    | 'awk'
+    | 'svelte';
+  className?: string;
+}>;
+
+export default function Code(props: CodeBlockProps) {
   const { highlightLineNumbers = true, startFromLineNumber, language, className, children } = props;
 
   const codeClassName = language ? `language-${language}` : '';
