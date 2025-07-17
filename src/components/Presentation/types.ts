@@ -37,6 +37,11 @@ export type SlideConfig = {
    */
   dataBackgroundGradient?: string;
   dataBackgroundImage?: string;
+  /**
+   * Options:
+   *
+   * 'contain' | 'cover' | 'auto' | '30%' | '200px 100px' | 'auto auto' | '3em 25%'
+   */
   dataBackgroundSize?: string;
   /**
    * @default 1
