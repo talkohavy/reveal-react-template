@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import ObjectWrapper from '../../../components/PresentationSlides/Positioner';
-import Slide from '../../../components/PresentationSlides/Slide';
+import ObjectWrapper from '../../../components/Positioner';
+import Slide from '../../../components/Slide';
 import FixedFrame from './FixedFrame';
 import { ANIMATION_CLASSES } from '../../../common/constants';
 

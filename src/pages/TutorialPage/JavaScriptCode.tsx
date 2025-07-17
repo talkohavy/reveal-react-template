@@ -1,5 +1,5 @@
-import Code from '../../components/PresentationSlides/CodeBlock';
-import Slide from '../../components/PresentationSlides/Slide';
+import Code from '../../components/CodeBlock';
+import Slide from '../../components/Slide';
 
 /**
  * @param {{name: string}} props

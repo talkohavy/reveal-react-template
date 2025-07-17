@@ -7,25 +7,9 @@ import RevealNotes from 'reveal.js/plugin/notes/notes.js';
 import registerJavascriptLanguage from '../../languages/javascript';
 import registerTypescriptLanguage from '../../languages/typescript';
 
-import 'reveal.js/dist/reveal.css';
-import 'reveal.js/dist/theme/black.css';
-import '../../common/styles/themes/vscode-dark.css';
+type PresentationProps = PropsWithChildren<any>;
 
-// import './themes/monokai.css';
-// import './themes/1c-light.css';
-// import './themes/a11y-light.css';
-// import './themes/agate.css';
-// import './themes/an-old-hope.css';
-// import './themes/andriodstudio.css';
-// import './themes/arta.css';
-// import './themes/atom-one-dark-reasonable.css';
-// import './themes/github-dark-dimmed.css';
-// import './themes/github-dark.css';
-// import './themes/github-light.css';
-
-type PresentationSlidesProps = PropsWithChildren<any>;
-
-export default function PresentationSlides(props: PresentationSlidesProps) {
+export default function Presentation(props: PresentationProps) {
   const { children } = props;
 
   const deckDivRef = useRef<HTMLElement>({} as HTMLElement); // reference to deck container div

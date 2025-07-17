@@ -1,6 +1,6 @@
-import Code from '../../../components/PresentationSlides/CodeBlock';
-import SideNotes from '../../../components/PresentationSlides/SideNote';
-import Slide from '../../../components/PresentationSlides/Slide';
+import Code from '../../../components/CodeBlock';
+import SideNotes from '../../../components/SideNote';
+import Slide from '../../../components/Slide';
 
 export default function LetsCodeAUnitTestSlide() {
   return (

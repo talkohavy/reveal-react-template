@@ -1,6 +1,6 @@
 import { type PropsWithChildren, useMemo } from 'react';
-import type { SlideConfig } from '../types';
-import { convertReactPropsToRevealProps } from '../../../common/utils/convertReactPropsToRevealProps';
+import type { SlideConfig } from '../Presentation/types';
+import { convertReactPropsToRevealProps } from '../../common/utils/convertReactPropsToRevealProps';
 
 type SlideProps = PropsWithChildren<{
   slideConfig?: SlideConfig;

@@ -1,4 +1,4 @@
-import PresentationSlides from '../../components/PresentationSlides';
+import PresentationSlides from '../../components/Presentation';
 import DecoupleRequestAndResponseSlide from './DecoupleRequestAndResponseSlide';
 import LetsCodeAUnitTestSlide from './LetsCodeAUnitTestSlide';
 import MiddlewareProsAndConsSlide from './MiddlewareProsAndConsSlide';

@@ -1,6 +1,6 @@
 import { EFFECTS } from '../../common/constants';
-import PresentationSlides from '../../components/PresentationSlides';
-import Slide from '../../components/PresentationSlides/Slide';
+import PresentationSlides from '../../components/Presentation';
+import Slide from '../../components/Slide';
 import JavaScriptCode from './JavaScriptCode';
 import TypeScriptCode from './TypeScriptCode';
 

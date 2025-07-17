@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import ObjectWrapper from '../../../components/PresentationSlides/Positioner';
-import Slide from '../../../components/PresentationSlides/Slide';
+import ObjectWrapper from '../../../components/Positioner';
+import Slide from '../../../components/Slide';
 import FixedFrame from '../ReduxActionFlowSlide/FixedFrame';
 import { ANIMATION_CLASSES, EFFECTS } from '../../../common/constants';
 
