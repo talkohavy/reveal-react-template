@@ -2,7 +2,6 @@
   "name": "reveal-react-template",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules",
     "lint": "eslint -c .eslintrc.json --ignore-path .eslintignore --report-unused-disable-directives --max-warnings 0 '**/*/*.{js,jsx,tsx,ts,d.ts,cjs,mjs}'",
@@ -27,7 +26,7 @@
     "reveal.js": "^5.1.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.6.1",
+    "@biomejs/biome": "2.1.1",
     "@types/node": "^20.11.27",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
