@@ -7,63 +7,165 @@ import RevealNotes from 'reveal.js/plugin/notes/notes.js';
 import registerJavascriptLanguage from '../../common/utils/languages/javascript';
 import registerTypescriptLanguage from '../../common/utils/languages/typescript';
 
-type PresentationProps = PropsWithChildren<any>;
+export type PresentationProps = PropsWithChildren<{
+  /**
+   * Display presentation control arrows.
+   *
+   * @default true
+   */
+  showControls?: boolean;
+  /**
+   * Display slide numbers in the bottom right corner of the presentation.
+   *
+   * @default false
+   */
+  showSlideNumber?: boolean;
+  /**
+   * Display slide numbers in the url.
+   *
+   * Useful when wanting refresh to stay on the same slide.
+   *
+   * @default true
+   */
+  showSlideHashInUrl?: boolean;
+  /**
+   * Determines where controls appear, "edges" or "bottom-right"
+   *
+   * @defaultValue `bottom-right`
+   */
+  controlsLayout?: 'edges' | 'bottom-right';
+  /**
+   * Show progress bar at the bottom of the presentation.
+   *
+   * @default true
+   */
+  showProgress?: boolean;
+  /**
+   * Enable keyboard navigation.
+   *
+   * @default true
+   */
+  isKeyboardEnabled?: boolean;
+  /**
+   * Enable touch navigation.
+   *
+   * @default true
+   */
+  isTouchEnabled?: boolean;
+  /**
+   * Show speaker notes.
+   *
+   * When a slide has side notes, you can hit 's' to open up speaker notes in
+   * a different window. However, if you set showNotes to `true`,
+   * the side notes would be visible on the slide itself - to all viewers.
+   *
+   * @default false
+   */
+  showNotes?: boolean;
+  /**
+   * Loop the presentation.
+   *
+   * @default false
+   */
+  isLoop?: boolean;
+  /**
+   * Hide the cursor after a certain time of inactivity (in ms).
+   *
+   * @default 5000
+   */
+  hideCursorAfter?: number;
+  /**
+   * Transition speed
+   *
+   * @defaultValue `default`
+   */
+  transitionSpeed?: 'default' | 'fast' | 'slow';
+  /**
+   * Transition style for full page slide backgrounds
+   *
+   * @defaultValue `fade`
+   */
+  backgroundTransition?: 'none' | 'fade' | 'slide' | 'convex' | 'concave' | 'zoom';
+  /**
+   * Can be used to globally disable auto-animation
+   *
+   * @defaultValue `true`
+   */
+  autoAnimate?: boolean;
+  /**
+   * Default settings for our auto-animate transitions, can be
+   * overridden per-slide or per-element via data arguments
+   *
+   * @defaultValue `1.0`
+   */
+  autoAnimateDuration?: number;
+  /**
+   * Transition style
+   *
+   * @defaultValue `slide`
+   */
+  transition?: 'none' | 'fade' | 'slide' | 'convex' | 'concave' | 'zoom';
+}>;
 
 export default function Presentation(props: PresentationProps) {
-  const { children } = props;
+  const {
+    showControls = true,
+    showSlideNumber = false,
+    showSlideHashInUrl = true,
+    controlsLayout = 'bottom-right',
+    showProgress = true,
+    isKeyboardEnabled = true,
+    isTouchEnabled = true,
+    showNotes = false,
+    isLoop = false,
+    hideCursorAfter = 5000,
+    transition = 'slide',
+    transitionSpeed = 'slow',
+    backgroundTransition = 'fade',
+    autoAnimate = true,
+    autoAnimateDuration = 1.0,
+    children,
+  } = props;
 
-  const deckDivRef = useRef<HTMLElement>({} as HTMLElement); // reference to deck container div
-  const deckRef = useRef<Api>(null); // reference to deck reveal instance
+  const deckContainerDivRef = useRef<HTMLElement>({} as HTMLElement);
+  const deckRef = useRef<Api>(null);
 
   useEffect(() => {
     // Prevents double initialization in strict mode
     if (deckRef.current) return;
 
-    const revealInstance = new Reveal(deckDivRef.current, {
-      transition: 'slide',
+    const revealInstance = new Reveal(deckContainerDivRef.current, {
+      transition,
+      transitionSpeed,
+      autoAnimate,
+      controls: showControls,
+      hash: showSlideHashInUrl,
+      controlsLayout,
+      controlsBackArrows: 'faded',
+      progress: showProgress,
+      slideNumber: showSlideNumber,
+      keyboard: isKeyboardEnabled,
+      touch: isTouchEnabled,
+      loop: isLoop,
+      rtl: false,
+      showNotes,
+      hideCursorTime: hideCursorAfter,
+      backgroundTransition,
+      autoAnimateDuration,
       // other config options
     });
 
-    /**
-     * More about initialization & config:
-     * - https://revealjs.com/initialization/
-     * - https://revealjs.com/config/
-     */
-    revealInstance
-      .initialize({
-        controls: true, // <--- defaults to `true`. Display presentation control arrows.
-        hash: true, // <--- defaults to `false`. Add the current slide number to the URL hash so that reloading the page/copying the URL will return you to the same slide.
-        // hashOneBasedIndex: true,
-        controlsLayout: 'bottom-right', // <--- defaults to 'bottom-right'.
-        controlsBackArrows: 'faded', // <--- defaults to 'faded'.
-        progress: true, // <--- defaults to `true`. Display a presentation progress bar
-        slideNumber: false, // <--- defaults to `false`.
-        keyboard: true, // defaults to `true`. Navigation using keyboard arrows.
-        touch: true, // defaults to `true`.
-        loop: false, // <--- defaults to `false`. Loop the presentation.
-        rtl: false, // defaults to `false`. Change the presentation direction to be RTL.
-        showNotes: false, // <--- defaults to `false`. When a slide has side notes, you can hit 's' to open up speaker notes in a different window. However, if you set showNotes to `true`, the side notes would be visible on the slide itself - to all viewers.
-        highlight: {
-          excapeHTML: true,
-          highlightOnLoad: true, // <--- defaults to `true`. When it's set to false, code is not highlighted.
-          beforeHighlight: (hljs) => {
-            hljs.registerLanguage('javascript', registerJavascriptLanguage);
-            hljs.registerLanguage('typescript', registerTypescriptLanguage);
-          },
+    revealInstance.initialize({
+      highlight: {
+        excapeHTML: true,
+        highlightOnLoad: true, // <--- defaults to `true`. When it's set to false, code is not highlighted.
+        beforeHighlight: (hljs) => {
+          hljs.registerLanguage('javascript', registerJavascriptLanguage);
+          hljs.registerLanguage('typescript', registerTypescriptLanguage);
         },
-        // transitionSpeed: 'slow',
-        // backgroundTransition: 'fade', // <--- Transition style for full page slide backgrounds.
-        // autoAnimate: true, // <--- defaults to `true`. Can be used to globally disable auto-animation.
-        hideCursorTime: 5000, // <--- defaults to 5000. Time before the cursor is hidden (in ms)
-        // autoAnimateDuration: 1,
-        // view: 'print', // <--- Activate the 'scroll' or the 'print' view.
-        // scrollProgress: true, // <--- Force the scrollbar to remain visible when in 'scroll' view.
-        // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [RevealNotes, RevealMarkdown, RevealHighlight, RevealMath.KaTeX],
-      })
-      .then(() => {
-        // good place for event handlers and plugin setups
-      });
+      },
+      plugins: [RevealNotes, RevealMarkdown, RevealHighlight, RevealMath.KaTeX],
+    });
 
     deckRef.current = revealInstance;
 
@@ -77,12 +179,12 @@ export default function Presentation(props: PresentationProps) {
         console.warn('Reveal.js destroy call failed.');
       }
     };
-  }, []);
+  }, [showControls, showSlideNumber]);
 
   return (
     // Your presentation is sized based on the width and height of
     // our parent element. Make sure the parent is not 0-height.
-    <div className='reveal' ref={deckDivRef as any}>
+    <div className='reveal' ref={deckContainerDivRef as any}>
       <div className='slides'>{children}</div>
     </div>
   );
