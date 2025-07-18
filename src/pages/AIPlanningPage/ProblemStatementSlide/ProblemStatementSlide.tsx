@@ -26,28 +26,25 @@ const topicArr = [
 
 export default function ProblemStatementSlide() {
   return (
-    <Slide
-      slideConfig={{
-        rStack: true,
-      }}
-    >
-      <h2 className='font-bold mb-12 text-red-400'>😵‍💫 The Problem</h2>
+    <Slide>
+      <h2 className='!text-red-400'>😵‍💫 The Problem</h2>
 
-      <div className='text-left'>
-        {topicArr.map((topic) => (
-          <div key={topic.title} className='flex items-start items-center w-full bg-red-500' style={{ fontSize: 36 }}>
-            <p>{topic.emoji}</p>
-            <p className='text-transparent'>---</p>
+      <div className='r-stretch flex flex-col justify-center'>
+        <div className='text-left text-3xl'>
+          {topicArr.map((topic) => (
+            <div key={topic.title} className='flex items-center justify-start gap-4'>
+              <div>{topic.emoji}</div>
 
-            <p>
-              <strong>{topic.title}:</strong> {topic.description}
-            </p>
-          </div>
-        ))}
-      </div>
+              <p>
+                <strong>{topic.title}:</strong> {topic.description}
+              </p>
+            </div>
+          ))}
+        </div>
 
-      <div className='text-center'>
-        <p className='text-2xl text-gray-400 italic'>Sound familiar? 🤔</p>
+        <div className='mt-12 text-center'>
+          <p className='text-2xl text-gray-400 italic'>Sound familiar? 🤔</p>
+        </div>
       </div>
 
       <SideNote>
