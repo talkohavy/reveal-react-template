@@ -1,6 +1,6 @@
-import PresentationSlides from '../../components/PresentationSlides';
-import { EFFECTS } from '../../components/PresentationSlides/constants';
-import Slide from '../../components/PresentationSlides/Slide';
+import { EFFECTS } from '../../common/constants';
+import PresentationSlides from '../../components/Presentation';
+import Slide from '../../components/Slide';
 import JavaScriptCode from './JavaScriptCode';
 import TypeScriptCode from './TypeScriptCode';
 
@@ -89,7 +89,7 @@ export default function TutorialPage() {
         <h2>Slide 10</h2>
         <div className='r-stretch border bg-slate-600'>
           <div>I WILL STRETCH TO FILL SCREEN</div>
-          <div className='p-10 text-left text-sm'>
+          <div className='p-10 text-left'>
             <div>Stretch Limitations:</div>
             <ul>
               <li>Only direct descendants of a slide section can be stretched</li>
@@ -235,7 +235,7 @@ export default function TutorialPage() {
       <Slide>
         <h1>Slide 19</h1>
         <p>Display code with syntax highlighting</p>
-        <p className='text-sm'>(Notice the line number offset)</p>
+        <p>(Notice the line number offset)</p>
 
         <pre>
           <code data-trim data-line-numbers data-noescape data-ln-start-from='7'>

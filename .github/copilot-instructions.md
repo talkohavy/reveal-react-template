@@ -49,3 +49,10 @@
 
 - **Never assume missing context. Ask questions if uncertain.** when providing instructions or comments that are specifically for Copilot.
 - **Always confirm file paths and module names** exist before referencing them in code or tests.
+
+---
+
+## 🗂️ Project Specifics
+
+- Search and use Components from under "components" directory for UI elements.
+- A background color to a slide can be given by passing the `slideConfig` prop to the Slide component. Under the `slideConfig` prop, you can specify the `dataBackgroundColor` property.

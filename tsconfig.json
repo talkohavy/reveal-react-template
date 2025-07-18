@@ -125,5 +125,6 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
   },
   "compileOnSave": true,
-  "exclude": ["node_modules", "**/node_modules", "toolbox"]
+  "exclude": ["node_modules", "**/node_modules", "toolbox"],
+  "include": ["src", "vite.config.mts", "tailwind.config.ts"]
 }
