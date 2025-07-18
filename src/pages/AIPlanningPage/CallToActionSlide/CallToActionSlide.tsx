@@ -9,21 +9,19 @@ TASKS.md - initial tasks to knock out for the project.`;
 
   return (
     <Slide>
-      <h2 className='!text-5xl font-bold !mb-12 !text-blue-400'>🚀 Your Next Steps</h2>
+      <h2 className='!text-5xl font-bold !text-blue-400'>🚀 Your Next Steps</h2>
 
       <div className='r-stretch flex flex-col justify-center'>
-        <div className='text-center mb-8'>
+        <div className='text-center'>
           <h3 className='!text-3xl font-bold !text-yellow-300'>Ready to Transform Your AI Collaboration?</h3>
           <p className='text-xl text-gray-300'>Start your next project with these three magic lines:</p>
         </div>
 
-        <div className='mb-8'>
-          <CodeBlock language='markdown' className='text-lg'>
-            {theChallenge}
-          </CodeBlock>
-        </div>
+        <CodeBlock language='markdown' className='text-lg'>
+          {theChallenge}
+        </CodeBlock>
 
-        <div className='grid grid-cols-3 gap-6 text-center mb-8'>
+        <div className='grid grid-cols-3 gap-6 text-center'>
           <div className='bg-gray-800/50 rounded-lg p-4'>
             <div className='text-3xl mb-2'>1️⃣</div>
             <h4 className='font-bold !text-green-300'>Copy</h4>
