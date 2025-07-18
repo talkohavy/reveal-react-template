@@ -29,7 +29,7 @@ export default function ProblemStatementSlide() {
     <Slide>
       <h2 className='!text-red-400'>😵‍💫 The Problem</h2>
 
-      <div className='r-stretch flex flex-col justify-center'>
+      <div className='r-stretch'>
         <div className='text-left text-3xl'>
           {topicArr.map((topic) => (
             <div key={topic.title} className='flex items-center justify-start gap-4'>
@@ -43,7 +43,7 @@ export default function ProblemStatementSlide() {
         </div>
 
         <div className='mt-12 text-center'>
-          <p className='text-2xl text-gray-400 italic'>Sound familiar? 🤔</p>
+          <p className='text-gray-400 italic'>Sound familiar? 🤔</p>
         </div>
       </div>
 
