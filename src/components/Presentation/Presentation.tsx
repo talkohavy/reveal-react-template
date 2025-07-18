@@ -152,6 +152,7 @@ export default function Presentation(props: PresentationProps) {
       hideCursorTime: hideCursorAfter,
       backgroundTransition,
       autoAnimateDuration,
+      // disableLayout: true,
       // other config options
     });
 

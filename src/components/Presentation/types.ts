@@ -22,7 +22,51 @@ export type FragmentClasses = {
 };
 
 export type SlideConfig = {
+  /**
+   * All CSS color formats are supported, including hex values, keywords, rgba() or hsl().
+   *
+   * Possible values: 'aquamarine' | 'rgb(70, 70, 255)'
+   */
   dataBackgroundColor?: string;
+  /**
+   * All CSS gradient formats are supported, including linear-gradient, radial-gradient and conic-gradient.
+   *
+   * Possible values:
+   * - "linear-gradient(to bottom, #283b95, #17b2c3)"
+   * - "radial-gradient(#283b95, #17b2c3)"
+   */
+  dataBackgroundGradient?: string;
+  /**
+   * By default, background images are resized to cover the full page.
+   *
+   * Value should be the URL of the image to show. GIFs restart when the slide opens.
+   */
+  dataBackgroundImage?: string;
+  /**
+   * Only applies if dataBackgroundImage is set.
+   *
+   * Options:
+   *
+   * 'contain' | 'cover' | 'auto' | '30%' | '200px 100px' | 'auto auto' | '3em 25%'
+   *
+   * @default 'cover'
+   */
+  dataBackgroundSize?: string;
+  /**
+   *  Only applies if dataBackgroundImage is set.
+   *
+   * See background-position on MDN.
+   *
+   * @default 'center'
+   */
+  dataBackgroundPosition?: string;
+  /**
+   * Only applies if dataBackgroundImage is set.
+   *
+   * @default 1
+   */
+  dataBackgroundOpacity?: number;
+
   /**
    * @default 'fade'
    */
@@ -31,22 +75,6 @@ export type SlideConfig = {
    * @default 'fade'
    */
   dataBackgroundTransition?: 'none' | 'fade' | 'slide' | 'convex' | 'concave' | 'zoom';
-  /**
-   * @example
-   * "linear-gradient(to bottom, #283b95, #17b2c3)"
-   */
-  dataBackgroundGradient?: string;
-  dataBackgroundImage?: string;
-  /**
-   * Options:
-   *
-   * 'contain' | 'cover' | 'auto' | '30%' | '200px 100px' | 'auto auto' | '3em 25%'
-   */
-  dataBackgroundSize?: string;
-  /**
-   * @default 1
-   */
-  dataBackgroundOpacity?: number;
   dataBackgroundVideo?: string;
   dataBackgroundVideoLoop?: boolean;
   dataBackgroundVideoMuted?: boolean;
@@ -57,10 +85,24 @@ export type SlideConfig = {
    */
   dataAutoAnimate?: boolean;
   /**
+   * The `r-stack` layout helper lets you center and place multiple elements on top of each other. This is intended to be used together with fragments to incrementally reveal elements.
+   *
    * @default false
    */
   rStack?: boolean;
   /**
+   * The r-stretch layout helper lets you resize an element, like an image or video,
+   * to cover the remaining vertical space in a slide.
+   *
+   * For example, a slide having 3 elements: A B & C.
+   * By giving B the `.r-stretch` class, its height is set to the slide's height minus
+   * the combined height of A and C.
+   *
+   * **Stretch Limitations**
+   *
+   * - Only direct descendants of a slide section can be stretched
+   * - Only one descendant per slide section can be stretched
+   *
    * @default false
    */
   rStretch?: boolean;

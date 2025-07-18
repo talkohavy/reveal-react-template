@@ -33,3 +33,48 @@ export const ANIMATION_CLASSES = {
   highlightCurrentBlue: 'highlight-current-blue', // Turn text red, then back to original on next step
   strikeThrough: 'strike-through', // Strike through
 };
+
+export const TEXT_CLASSES = {
+  /**
+   * The `r-fit-text` class makes text as large as possible without overflowing the slide.
+   * This is great when you want BIG text without having to manually find the right font
+   * size. Powered by fitty ❤️
+   */
+  rFitText: 'r-fit-text',
+  /**
+   * Decorate any element with `r-frame` to make it stand out against the background.
+   * If the framed element is placed inside an anchor, we'll apply a hover effect to
+   * the border.
+   */
+  rFrame: 'r-frame',
+
+  /**
+   * Attach this to ANY ELEMENT (not just an image element) to enable the lightbox effect.
+   *
+   * A lightbox is a modal that displays an image or video in a full-screen overlay.
+   * It's great for things like clicking on thumbnails to view a larger image or video.
+   *
+   * Example usages:
+   * - <img src="path/to/image.jpg" alt="Description" data-preview-image="path/to/image.jpg" />
+   * - <a data-preview-image="image.png">📸 Open Logo</a>
+   * - <button data-preview-video="video.mp4">🎥 Open Video</button>
+   */
+  dataPreviewImage: 'data-preview-image',
+  /**
+   * Video lightboxes work the same way as image lightboxes except you use the data-preview-video attribute instead.
+   *
+   * Example usage:
+   * <video src="video.mp4" data-preview-video></video>
+   * <img src="reveal.png" data-preview-video="video.mp4">
+   */
+  dataPreviewVideo: 'data-preview-video',
+  /**
+   * The sizing of media in the lightbox can be controlled using the `data-preview-fit`
+   * attribute. The following fit modes are supported:
+   *
+   * - scale-down (default): Scale media down if needed to fit in the lightbox.
+   * - contain: Scale media up and down to fit the lightbox without cropping.
+   * - cover: Scale media to cover the entire lightbox, even if some of it is cut off.
+   */
+  dataPreviewFit: 'data-preview-fit',
+};
