@@ -43,7 +43,7 @@ export default function ProblemStatementSlide() {
         </div>
 
         <div className='mt-12 text-center'>
-          <p className='text-gray-400 italic'>Sound familiar? 🤔</p>
+          <p className='text-gray-400 italic'>Sound familiar?</p>
         </div>
       </div>
 
