@@ -1,12 +1,12 @@
 import PresentationSlides from '../../components/Presentation';
 import BenefitsOfPlanningSlide from './BenefitsOfPlanningSlide';
 import CallToActionSlide from './CallToActionSlide';
-import DemoSlide from './DemoSlide';
 import OpeningSlide from './OpeningSlide';
 import PlanningVsChaosSlide from './PlanningVsChaosSlide';
 import ProblemStatementSlide from './ProblemStatementSlide';
 import SolutionExplainedSlide from './SolutionExplainedSlide';
 import TheThreeLineSlide from './TheThreeLineSlide';
+// import DemoSlide from './DemoSlide';
 
 export default function AIPlanningPage() {
   return (
@@ -19,7 +19,7 @@ export default function AIPlanningPage() {
 
       <TheThreeLineSlide />
 
-      <DemoSlide />
+      {/* <DemoSlide /> */}
 
       <BenefitsOfPlanningSlide />
 
