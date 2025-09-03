@@ -3,24 +3,24 @@ import Slide from '../../../components/Slide';
 
 const topicArr = [
   {
-    emoji: '🌪️',
-    title: 'Chaotic AI Conversations',
-    description: 'Jumping between ideas without structure',
+    emoji: '⚠️',
+    description: '"oops, the file seems corrupted, let me quickly create another one"',
   },
   {
-    emoji: '🔄',
-    title: 'Repeated Context',
-    description: 'AI keeps asking the same questions about your project',
+    emoji: '🤔',
+    description: `"Let's see what's going on... hmm... the file seems empty"`,
   },
   {
-    emoji: '🎯',
-    title: 'Lost Focus',
-    description: 'Starting projects but never finishing them',
+    emoji: '🤪',
+    description: "AI is doing something you didn't want it to do",
   },
   {
-    emoji: '🧩',
-    title: 'Missing the Big Picture',
-    description: "AI can't help effectively without understanding your goals",
+    emoji: '🔀',
+    description: 'AI find an unrelated issue, leaves the main goal, and starts treating the unrelated issue',
+  },
+  {
+    emoji: '📈',
+    description: 'Over 25 new files were either created or modified',
   },
 ];
 
@@ -31,13 +31,13 @@ export default function ProblemStatementSlide() {
 
       <div className='r-stretch'>
         <div className='text-left text-3xl'>
-          {topicArr.map((topic) => (
-            <div key={topic.title} className='flex items-center justify-start gap-4'>
+          <h2>When the task is big:</h2>
+
+          {topicArr.map((topic, index) => (
+            <div key={index} className='flex items-center justify-start gap-4'>
               <div>{topic.emoji}</div>
 
-              <p>
-                <strong>{topic.title}:</strong> {topic.description}
-              </p>
+              <p>{topic.description}</p>
             </div>
           ))}
         </div>
