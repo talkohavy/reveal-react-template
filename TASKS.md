@@ -7,6 +7,7 @@
 - [x] **2025-07-17**: Create PLANNING.md file with project architecture and guidelines
 - [x] **2025-07-17**: Create TASKS.md file for task tracking
 - [x] **2025-07-17**: Create AI Planning presentation about the benefits of using PLANNING.md and TASKS.md
+- [x] **2025-12-02**: Create Vite presentation about modern frontend tooling as CRA replacement
 
 ### 🚀 Active Tasks
 
