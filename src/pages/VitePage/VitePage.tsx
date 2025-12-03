@@ -1,6 +1,7 @@
 import PresentationSlides from '../../components/Presentation';
 import CallToActionSlide from './CallToActionSlide';
 import FeaturesSlide from './FeaturesSlide';
+import ModuleFederationSlide from './ModuleFederationSlide';
 import OpeningSlide from './OpeningSlide';
 import PerformanceComparisonSlide from './PerformanceComparisonSlide';
 import ProblemWithCRASlide from './ProblemWithCRASlide';
@@ -18,6 +19,8 @@ export default function VitePage() {
       <PerformanceComparisonSlide />
 
       <FeaturesSlide />
+
+      <ModuleFederationSlide />
 
       <CallToActionSlide />
     </PresentationSlides>
