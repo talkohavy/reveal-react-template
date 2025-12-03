@@ -41,7 +41,9 @@ export default defineConfig({
       <h2 className='!text-purple-400'>🔗 Module Federation</h2>
 
       <div className='r-stretch flex flex-col justify-between'>
-        <CodeBlock language='typescript'>{federationConfig}</CodeBlock>
+        <CodeBlock highlightLineNumbers='3|8-23' language='typescript'>
+          {federationConfig}
+        </CodeBlock>
       </div>
 
       <SideNote>

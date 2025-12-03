@@ -2,6 +2,13 @@ import type { PropsWithChildren } from 'react';
 
 type CodeBlockProps = PropsWithChildren<{
   highlightLineNumbers?: boolean | string;
+  /**
+   * The line number that would appear on the left for the first line of the code snippet.
+   *
+   * Useful for when you cut a snippet from a large file, and you want the line numbers to
+   * be exactly as they are in the original file.
+   * @default 1
+   */
   startFromLineNumber?: number;
   /**
    * @default auto-detect
